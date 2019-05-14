@@ -6,10 +6,11 @@ import { ProductosComponent } from '../app/vista2/productos/productos.component'
 import { EstadisticaComponent } from '../app/vista2/estadistica/estadistica.component';
 import { PerfilComponent } from '../app/vista2/perfil/perfil.component';
 import { CarritoComponent } from '../app/vista2/carrito/carrito.component';
-
+import { LoginComponent } from '../app/vista1/login/login.component'
 
 
 const routes: Routes = [
+  {path: '', component: LoginComponent},
   { path: 'vista2', component: Vista2Component,
     children: [
       { path: 'homepage', component: HomeComponent},
