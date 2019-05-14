@@ -12,4 +12,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class FirebaseService {
 
   constructor(public firestore: AngularFirestore) { }
+
+  getDataPersonal(){
+    return this.firestore.collection('operarios').valueChanges();
+  }
 }
