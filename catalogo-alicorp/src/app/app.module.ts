@@ -16,6 +16,7 @@ import { ProductosComponent } from './vista2/productos/productos.component';
 import { EstadisticaComponent } from './vista2/estadistica/estadistica.component';
 import { CarritoComponent } from './vista2/carrito/carrito.component';
 import { PerfilComponent } from './vista2/perfil/perfil.component';
+import { Vista2Component } from './vista2/vista2.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PerfilComponent } from './vista2/perfil/perfil.component';
     ProductosComponent,
     EstadisticaComponent,
     CarritoComponent,
-    PerfilComponent
+    PerfilComponent,
+    Vista2Component
   ],
   imports: [
     BrowserModule,
