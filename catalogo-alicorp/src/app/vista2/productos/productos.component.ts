@@ -11,15 +11,14 @@ export class ProductosComponent implements OnInit {
   quantity: number = 1;
   order = [];
 
-  constructor(public firebaseService: FirebaseService) { }
+  constructor(public firebaseService : FirebaseService) { }
 
   ngOnInit() {
     this.products = [];
     this.firebaseService.getDataProducts().subscribe(ele => {
       ele.forEach((productData) => {
-     const productObj = productData.payload.doc.data();
         this.products.push({
-          data: {...productObj,
+          data: {...productData,
                  quantity: this.quantity} 
         });
       })

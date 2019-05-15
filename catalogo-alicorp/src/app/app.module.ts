@@ -8,9 +8,12 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestore } from '@angular/fire/firestore';
 
-
+/* import { AngularFirestoreModule } from '@angular/fire/firestore'
+ */
 // eviroments
 import { environment } from '../environments/environment';
+
+// componentes
 import { LoginComponent } from './vista1/login/login.component';
 import { HomeComponent } from './vista2/home/home.component';
 import { NavbarComponent } from './vista2/navbar/navbar.component';
@@ -19,6 +22,10 @@ import { EstadisticaComponent } from './vista2/estadistica/estadistica.component
 import { CarritoComponent } from './vista2/carrito/carrito.component';
 import { PerfilComponent } from './vista2/perfil/perfil.component';
 import { Vista2Component } from './vista2/vista2.component';
+
+// servicios
+import { FirebaseService } from './service/firebase.service';
+import { VentasComponent } from './vista2/ventas/ventas.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +37,8 @@ import { Vista2Component } from './vista2/vista2.component';
     EstadisticaComponent,
     CarritoComponent,
     PerfilComponent,
-    Vista2Component
+    Vista2Component,
+    VentasComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +46,11 @@ import { Vista2Component } from './vista2/vista2.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [AngularFirestore],
+  
+/*   providers: [
+  AngularFirestoreModule
+    FirebaseService
+  ], */
   bootstrap: [AppComponent]
 
 })

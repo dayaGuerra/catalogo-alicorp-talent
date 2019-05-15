@@ -18,6 +18,6 @@ export class FirebaseService {
   }
 
     public getDataProducts(){
-    return this.firestore.collection('productos').snapshotChanges();
+    return this.firestore.collection('productos').valueChanges();
   }
 }
