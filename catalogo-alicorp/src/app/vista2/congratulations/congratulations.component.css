@@ -1,0 +1,33 @@
+.container{
+    padding-right: 15px;
+    padding-top: 100px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.h1 {
+    color: #E30728 !important;
+    font-size: 90px !important;
+}
+
+img{
+    width: 40% !important;
+}
+
+label{
+    display: block !important;
+    font-size: 35px;
+}
+
+.btn-lg {
+    font-size: 40px !important;
+}
+
+strong{
+    font-size: 60px;
+    color: #76BD1D ; 
+}
+
+button{
+    padding: 25px 35 px 40px 45px !important;
+}

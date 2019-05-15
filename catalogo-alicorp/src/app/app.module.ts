@@ -8,8 +8,6 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestore } from '@angular/fire/firestore';
 
-/* import { AngularFirestoreModule } from '@angular/fire/firestore'
- */
 // eviroments
 import { environment } from '../environments/environment';
 
@@ -28,6 +26,10 @@ import { FirebaseService } from './service/firebase.service';
 import { VentasComponent } from './vista2/ventas/ventas.component';
 import { FormsModule } from '@angular/forms';
 import { CongratulationsComponent } from './vista2/congratulations/congratulations.component';
+
+// pipe
+
+
 
 @NgModule({
   declarations: [
@@ -50,11 +52,7 @@ import { CongratulationsComponent } from './vista2/congratulations/congratulatio
     FormsModule
   ],
   providers: [AngularFirestore],
-  
-/*   providers: [
-  AngularFirestoreModule
-    FirebaseService
-  ], */
+
   bootstrap: [AppComponent]
 
 })

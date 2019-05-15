@@ -22,6 +22,10 @@ export class FirebaseService {
     this.firestore.collection('ventas').add(objtSale);
   }
 
+/*   getProducsByCat(categ: string) {
+    return this.firestore.collection('productos', ref => ref.where('categoria', '==', categ)).valueChanges();
+  }
+ */
   getDataProducts(){
     return this.firestore.collection('productos').valueChanges();
   }

@@ -9,7 +9,7 @@ import { LocalService } from 'src/app/service/local.service';
 })
 export class NavbarComponent implements OnInit {
  dataProducto=[];
-
+ 
   constructor(
     public firestorProductoService: FirebaseService,
     public servicioLocal: LocalService
@@ -21,8 +21,8 @@ export class NavbarComponent implements OnInit {
   }
 
 filtrarCategoria(data:string){
-// console.log(data);
 this.servicioLocal.filtrarData(data);
+
 }
 
 

@@ -42,17 +42,31 @@ export class LocalService {
     const modelOrder: RegisterSales = {
       name: nameuser.nombre,
       productos: this.listProductsSale,
-
-  }
+    }
     return this.firebaseService.sendDataFirebase(modelOrder);
- }
-sendToCart(prod){
-  this.productos.push(prod);
-  this.userOrder.next(this.productos);
   }
 
-  requestOrder(prods){
-    this.firebaseService.createOrder({...prods});
+  sendToCart(prod) {
+    const prodExistente = this.productos.find(p => prod.id === p.id)
+    if (!prodExistente) {
+      this.productos.push(prod);
+    } else {
+      prodExistente.quantity += prod.quantity
+    }
+   /*  const arrIds = this.productos.map( producto => producto.id);
+    if(!arrIds.includes(prod.id)) { */
+    //this.productos.push(prod);
+    /* } else {
+    let elemRep = this.productos.find(producto => producto.id === prod.id);
+     console.log(`antes eran  ${elemRep.quantity} y ahora sa añaden ${prod.quantity}`)
+     elemRep.quantity += prod.quantity;
+    }
+   console.log(this.productos); */
+    this.userOrder.next(this.productos);
+  }
+
+  requestOrder(prods) {
+    this.firebaseService.createOrder({ ...prods });
     this.productos = [];
   }
 
@@ -66,7 +80,7 @@ sendToCart(prod){
 
   filtrarData(data:string){
     this.dato = data;
-    // console.log('soy servicio', this.dato)
-    this.filtrarDataComp.next(this.dato);
+/*     this.firebaseService.getProducsByCat(data);
+ */    this.filtrarDataComp.next(this.dato);
   }
 }

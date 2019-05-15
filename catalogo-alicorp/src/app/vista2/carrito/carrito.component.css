@@ -1,0 +1,67 @@
+.naranja{
+   color: #F59B00
+}
+
+.min-tam{
+ width: 35%;
+
+}
+
+/*producto*/
+
+.input-group{
+    margin-top: 20px;
+    width: 30%;
+}
+
+.tamaño{
+ padding: 50px
+}
+
+.color-naranja{
+ color:  #f59b00;
+}
+
+.color-verde{
+    color:#6EB22E
+}
+
+.font-weight{
+    font-weight: 700
+}
+
+.bg-gris{
+    background-color: #EDE9E9
+}
+
+.btn-secondary{
+    background-color:#595858
+}
+
+.width{
+    max-width: 160px;
+}
+
+.cursor{
+    cursor: pointer;
+}
+.margin-top{
+    margin-top: 30px;
+}
+
+.btn-danger{
+    background-color:   #f59b00;
+    border: none;
+}
+
+.line{
+    line-height: 10px;
+}
+
+.font-size{
+    font-size: 25px
+}
+
+.margin-bottom{
+    margin-bottom: 30px;
+}
