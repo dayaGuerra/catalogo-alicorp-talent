@@ -1,7 +1,8 @@
-<form>
+<h1 class ="text-center md-6 total" > Mi Venta </h1>
+<form class="col-10 center"> 
   <div class="form-group">
     <label for="exampleFormControlSelect1">A quien vende</label>
-    <select class="form-control" id="exampleFormControlSelect1" (change)="capturarClienteFinal($event.target.value)">
+    <select class="form-control " id="exampleFormControlSelect1" (change)="capturarClienteFinal($event.target.value)">
       <option value="tienda">Tienda</option>
       <option value="familia">Familia</option>
       <option value="amigos">Amigos</option>
@@ -23,57 +24,75 @@
     <div class="col-md-3 col-lg-3">
         <label for="exampleFormControlSelect1">Productos</label>
         <select class="form-control" id="exampleFormControlSelect1" (change)="capturarProducto($event.target.value)">
-          <option>Aceite 500 ml</option>
-          <option>Detergente 350 gr</option>
-          <option>Tallarín Lavaggi 500gr</option>
-          <option>Trozos de Atún Primor 170gr</option>
-          <option>Jabón Bolívar con Perlas de Blancura Floral 210gr</option>
+          <option>Aceite </option>
+          <option>Detergente </option>
+          <option>Tallarínes</option>
+          <option>Atún Primor </option>
+          <option>Jabón Bolívar </option>
         </select>
   </div>
       
     <div class="mount col-md-3 col-lg-3">
-      <label for="" class="text-summary">Cantidad</label><br>
-      <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="cantidad" name="cantidadVendida" [(ngModel)]="cantidadVendida">
-      </div>
-
-  <div class="col-md-3 col-lg-3">
-    <label for="exampleFormControlInput1">Precio Sugerido</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="precio" name="precioSugerido" [(ngModel)]="precioSugerido">
+      <label for="" class="text-summary">Cant.</label><br>
+      <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="cantidad" name="cantidadVendida" [(ngModel)]="cantidadVendida"> 
+      <label for="" class="text-summary">Und.</label><br>
+  
+    </div>
+    <a class="" (click)="addSale()"><img class="img-btn" src="https://i.ibb.co/XSd1931/plus.png" alt="icono de agregar"></a>
   </div>
 
-  <div class="col-md-3 col-lg-3">
-    <label for="exampleFormControlInput1">Stock</label>
-    <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="stock" name="stock" [(ngModel)]="stock">
-  </div>
-  </div>
-  <button type="button" class="btn btn-primary btn-lg btn-block" (click)="addSale()">Registrar Venta</button>
-
+  
 </form>
 
-<table class="table table-hover">
+<table class="table table-hover col-10 center">
   <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">PRODUCTO</th>
-      <th scope="col">CANTIDAD</th>
-      <th scope="col">PRECIO SUGERIDO</th>
-      <th scope="col">STOCK</th>
-      <th scope="col">DISTRITO</th>
+      <th scope="col">CANT.</th>
+      <th scope="col">P. SUG</th>
+      <th scope="col">P. TOTAL</th>
+      <th scope="col">Borrrar</th>
     </tr>
   </thead>
   <tbody *ngFor= "let listProduct of dataObjectProducts ; let indice=index" >
       <tr>
-        <th scope="row">{{indice+1}}</th>
-        <td scope="col">{{listProduct.productovendido}}</td>
-        <td scope="col">{{listProduct.cantidad}}</td>
-        <td scope="col">{{listProduct.preciosugerido}}</td>  
-        <td scope="col" >{{listProduct.stock}}</td>
-        <td scope="col" >{{listProduct.distrito}}</td>
-        <td scope="col"><button (click)="deleteSaleProduct(listProduct.productovendido)">x</button></td>
+        <td >{{indice+1}}</td>
+        <td >{{listProduct.productovendido}}</td>
+        <td >{{listProduct.cantidad}}</td>
+        <td >{{listProduct.preciosugerido}}</td>  
+        <td >{{listProduct.stock}}</td>
+        <td><a (click)="deleteSaleProduct(listProduct.productovendido)"><img src="https://i.ibb.co/BqQFgkz/delete-button.png" alt="icono de borrar" class="img-delete"></a></td>
       </tr>
 
       <!-- <td>Total de pedido: {{obtenerTotal()}}</td> -->
     </tbody>
 </table>
-<button type="button" class="btn btn-primary btn-lg btn-block" (click)="sendDataSale()" routerlink="/congratulations">Guardar Venta Total</button>
 
+<div class="col-10 center total">
+  <form class="form-inline">
+    <div class="form-group mount col-md-3 col-lg-3">
+      <label for="" class="sr-only"> Venta Total </label>
+      <p class="form-control-static">  Venta Total </p> 
+    </div>
+    <div class="form-group mx-sm-3">
+      <label for="" class="sr-only"> S/. </label>
+      <input type="text" class="form-control" id="inputVentaTotal" placeholder="S/." readonly>
+    </div>
+  </form>
+
+  <form class="form-inline">
+    <div class="form-group mount col-md-3 col-lg-3">
+        <label for="" class="sr-only"> Ganancias de la venta </label>
+        <p class="form-control-static">  Ganancias de la Venta </p> 
+    </div>
+    <div class="form-group mx-sm-3 ">
+        <label for="" class="sr-only"> S/. </label>
+        <input type="text" class="form-control " id="inputVentaTotal" placeholder="S/." readonly>
+    </div>
+  </form>
+
+  <div class="d-flex justify-content-center margin-top-low">
+    <button type="button" class="width  btn  btn-lg btn-danger justify-content-center" (click)="sendDataSale()" routerlink="/congratulations">Guardar Venta Total</button>
+  </div>
+</div>

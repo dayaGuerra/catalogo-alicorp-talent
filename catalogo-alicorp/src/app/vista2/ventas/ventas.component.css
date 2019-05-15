@@ -1,0 +1,41 @@
+.form-inline {
+    justify-content: flex-end !important;
+}
+
+.form-control{
+    background-color: #ced4da !important;
+}
+
+h1{
+    font-family: 'Courgette', cursive !important; 
+    color: #1C5430 ;
+}
+
+.table thead th {
+    border-bottom: 2px solid #6EB22E;
+}
+.table td, .table th {
+    border-top: 1px solid #6EB22E;
+}
+
+th {
+    color: #6EB22E;
+}
+
+.img-btn{
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 50px;
+}
+
+.center {
+    margin: auto;
+}
+
+.img-delete {
+    width: 30px;
+}
+
+.total {
+    margin-top: 30px;
+}
