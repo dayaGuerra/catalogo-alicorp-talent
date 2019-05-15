@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalService } from '../../service/local.service'
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-carrito',
@@ -14,8 +15,8 @@ export class CarritoComponent implements OnInit {
   finalBal = this.investment;
   name: string;
   earnings: number;
-  factory: string;
-  constructor(private localService: LocalService) { }
+  factory: string = "Callao";
+  constructor(private localService: LocalService, private router: Router) { }
 
   ngOnInit() {
     this.localService.userOrderCart.subscribe((obj: object) => {
@@ -55,12 +56,6 @@ export class CarritoComponent implements OnInit {
       const balance = parseFloat((this.investment - this.total).toFixed(2));
       this.finalBal = balance;
       return balance;
-     /* if(balance > 0) {
-
-      }  else {
-        alert('No puedes comprar más que tu saldo')
-
-      } */
     }
   }
 
@@ -81,6 +76,7 @@ export class CarritoComponent implements OnInit {
        }
     );
     this.prodOrders = [];
+   this.router.navigateByUrl('/vista2/congratulations');
   }
 
   showEarnings() {
