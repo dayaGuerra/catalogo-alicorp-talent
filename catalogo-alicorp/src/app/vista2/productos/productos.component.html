@@ -5,8 +5,14 @@
     <figure class="card card-product">
       <div class="img-wrap"><img src="{{product.data.img}}"></div>
       <figcaption class="info-wrap">
-          <h4 class="title">{{product.data.nombre}} ({{product.data.unidades}} unidades)</h4> 
-          <p class="desc">Some small description goes here</p>
+          <p class="price-new"> {{product.data.precMay | currency:'S/ '}} cja.</p>
+
+          <h4 class="title">{{product.data.nombre}}</h4> 
+          <p class="desc">{{product.data.marca}} </p>
+          <span class="desc">x {{product.data.unidades}} </span>
+          <span class="desc">{{product.data.presentacion}} </span>
+
+
           <!-- <div class="rating-wrap">
             <ul class="rating-stars">
               <li style="width:80%" class="stars-active"> 
@@ -21,17 +27,14 @@
           </div> --> <!-- rating-wrap.// -->
       </figcaption>
       <div class="bottom-wrap">
-        <a (click)="addProduct(product)" class="btn btn-sm btn-primary float-right">Order Now</a>	
+        <a (click)="addProduct(product, products.indexOf(product))" class="btn btn-sm btn-primary float-right">AGREGAR AL CARRITO</a>	
         <div class="price-wrap h5">
-          <p class="price-new"> Precio Alicorp: {{product.data.precMay | currency:'S/ '}}</p>
-          <p class="price-new"> Precio sugerido venta: {{product.data.precSug | currency:'S/ '}}</p>
-          <p class="price-old">Ganancia: {{product.data.ganancia | currency:'S/ '}}</p>
         </div> <!-- price-wrap.// -->
       </div> <!-- bottom-wrap.// -->
       <div nclass="bottom-wrap">
-        <button (click)="addQuantity(product.data)">+</button>
-        <span>{{quantity}}</span>
-        <button (click)="reduceQuantity(product.data)">-</button>
+        <button (click)="addQuantity(products.indexOf(product))">+</button>
+        <span>{{quantity[products.indexOf(product)]}}</span>
+        <button (click)="reduceQuantity(products.indexOf(product))">-</button>
       </div> <!-- bottom-wrap.// -->
     </figure>
   </div> <!-- col // -->
