@@ -29,6 +29,10 @@ import { VentasComponent } from './vista2/ventas/ventas.component';
 import { FormsModule } from '@angular/forms';
 import { CongratulationsComponent } from './vista2/congratulations/congratulations.component';
 
+// pipe
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
