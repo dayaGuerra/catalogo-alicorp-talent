@@ -1,0 +1,39 @@
+.btn-ali{
+    background-color: #B40312
+}
+
+.logo {
+    width: 166px;
+    height: 47px;
+    left: 97px;
+    top: 141px;
+}
+
+.max-width{
+  max-width: 300px;
+}
+
+.navbar-two {
+    width: 100%;
+    background-color: #E30728;
+    overflow: auto;
+  }
+  
+  .navbar-two a {
+    float: left;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    width: 25%; /* Four links of equal widths */
+    text-align: center;
+  }
+  
+  .navbar-two a:hover {
+    background-color: #B40312;
+  }
+  
+  /*
+  .navbar a.active {
+    background-color: #B40312;
+  }*/
