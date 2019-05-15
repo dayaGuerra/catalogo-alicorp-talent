@@ -21,7 +21,9 @@ export class LoginComponent implements OnInit {
     public firebaseServicePersonal : FirebaseService, 
     private rutas: Router, 
     private servicioLocal:LocalService
-    ) { }
+    ) {
+    
+     }
 
   ngOnInit() {
   }
@@ -41,8 +43,8 @@ export class LoginComponent implements OnInit {
            nombre: obj.nombre,
            dni: obj.dni
          }
-         
-         this.servicioLocal.codeUser(objData);
+
+         //this.servicioLocal.codeUser(objData);
          this.rutas.navigateByUrl('/vista2');
      }
     });
