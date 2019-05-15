@@ -16,4 +16,8 @@ export class FirebaseService {
   getDataPersonal(){
     return this.firestore.collection('operarios').valueChanges();
   }
+  sendDataFirebase(objtSale) {
+    console.log(objtSale);
+    this.firestore.collection('ventas').add(objtSale);
+  }
 }
