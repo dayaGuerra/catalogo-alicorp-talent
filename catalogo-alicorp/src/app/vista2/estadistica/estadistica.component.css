@@ -1,0 +1,30 @@
+.margin-top{
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+.amarillo{
+    background-color: #F59B00;
+    color: #ffffff
+}
+.amarillo-color{
+    color:#F59B00;
+}
+
+.negro{
+    background-color: #323131;
+    color: #ffffff
+}
+
+.verde{
+    background-color: #6EB32E;
+    color: #ffffff
+}
+
+.font-whe{
+    font-weight: 700;
+}
+.font-size{
+    font-size:15px
+}
+
