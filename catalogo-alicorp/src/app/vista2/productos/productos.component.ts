@@ -9,7 +9,6 @@ import { LocalService } from '../../service/local.service'
 })
 export class ProductosComponent implements OnInit {
   products = [];
-  //quantity= {};
   order = [];
 
   constructor(public firebaseService : FirebaseService, private localService :LocalService 
@@ -23,19 +22,19 @@ export class ProductosComponent implements OnInit {
           data: {...productData,
                  quantity: 0} 
         });
-        //this.quantity[ele.indexOf(productData)] = 1;
       })
     });
 
   }
 
-/* getFilteredProducts(){
-
-} */
-
   addProduct(product, index) {
-   this.localService.sendToCart({ ...product.data });
+    if(product.data.quantity > 0) {
+   this.localService.sendToCart({ ...product.data});
    product.quantity = 0
+   alert("Tu producto fue añadido con éxito al carrito de compras")
+    } else {
+      alert("Selecciona mínimo un producto")
+    }
   }
 
   addQuantity(index) {

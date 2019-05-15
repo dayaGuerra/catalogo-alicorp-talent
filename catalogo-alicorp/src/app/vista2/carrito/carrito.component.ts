@@ -52,7 +52,7 @@ export class CarritoComponent implements OnInit {
 
   showBalance() {
     if (this.prodOrders.length >= 1) {
-      const balance = this.investment - this.total;
+      const balance = parseFloat((this.investment - this.total).toFixed(2));
       this.finalBal = balance;
       return balance;
      /* if(balance > 0) {
@@ -93,7 +93,7 @@ export class CarritoComponent implements OnInit {
     if (this.prodOrders.length >= 1) {
       this.total = this.prodOrders.reduce((total, prodB) => 
         total + prodB.subTotal, 0);
-      return this.total;
+      return parseFloat((this.total).toFixed(2));
     }
   }
 
