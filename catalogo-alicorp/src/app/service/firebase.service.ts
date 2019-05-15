@@ -13,7 +13,11 @@ export class FirebaseService {
 
   constructor(public firestore: AngularFirestore) { }
 
-  getDataPersonal(){
+  public getDataPersonal(){
     return this.firestore.collection('operarios').valueChanges();
+  }
+
+    public getDataProducts(){
+    return this.firestore.collection('productos').valueChanges();
   }
 }

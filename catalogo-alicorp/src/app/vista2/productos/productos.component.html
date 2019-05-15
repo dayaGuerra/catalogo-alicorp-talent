@@ -1,12 +1,13 @@
 
-<div class="row">
+
+<div *ngFor="let product of products" class="row"> 
   <div class="col-md-4">
     <figure class="card card-product">
-      <div class="img-wrap"><img src="images/items/1.jpg"></div>
+      <div class="img-wrap"><img src="{{product.data.img}}"></div>
       <figcaption class="info-wrap">
-          <h4 class="title">Another name of item</h4>
+          <h4 class="title">{{product.data.nombre}} ({{product.data.unidades}} unidades)</h4> 
           <p class="desc">Some small description goes here</p>
-          <div class="rating-wrap">
+          <!-- <div class="rating-wrap">
             <ul class="rating-stars">
               <li style="width:80%" class="stars-active"> 
                 <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
@@ -17,67 +18,20 @@
             </ul>
             <div class="label-rating">132 reviews</div>
             <div class="label-rating">154 orders </div>
-          </div> <!-- rating-wrap.// -->
+          </div> --> <!-- rating-wrap.// -->
       </figcaption>
       <div class="bottom-wrap">
-        <a href="" class="btn btn-sm btn-primary float-right">Order Now</a>	
+        <a (click)="addProduct(product)" class="btn btn-sm btn-primary float-right">Order Now</a>	
         <div class="price-wrap h5">
-          <span class="price-new">$1280</span> <del class="price-old">$1980</del>
+          <p class="price-new"> Precio Alicorp: {{product.data.precMay | currency:'S/ '}}</p>
+          <p class="price-new"> Precio sugerido venta: {{product.data.precSug | currency:'S/ '}}</p>
+          <p class="price-old">Ganancia: {{product.data.ganancia | currency:'S/ '}}</p>
         </div> <!-- price-wrap.// -->
       </div> <!-- bottom-wrap.// -->
-    </figure>
-  </div> <!-- col // -->
-  <div class="col-md-4">
-    <figure class="card card-product">
-      <div class="img-wrap"><img src="images/items/2.jpg"> </div>
-      <figcaption class="info-wrap">
-          <h4 class="title">Good product</h4>
-          <p class="desc">Some small description goes here</p>
-          <div class="rating-wrap">
-            <ul class="rating-stars">
-              <li style="width:80%" class="stars-active"> 
-                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-              </li>
-              <li>
-                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> 
-              </li>
-            </ul>
-            <div class="label-rating">132 reviews</div>
-            <div class="label-rating">154 orders </div>
-          </div> <!-- rating-wrap.// -->
-      </figcaption>
-      <div class="bottom-wrap">
-          <a href="" class="btn btn-sm btn-primary float-right">Order Now</a>	
-          <div class="price-wrap h5">
-            <span class="price-new">$1280</span> <del class="price-old">$1980</del>
-          </div> <!-- price-wrap.// -->
-      </div> <!-- bottom-wrap.// -->
-    </figure>
-  </div> <!-- col // -->
-  <div class="col-md-4">
-    <figure class="card card-product">
-      <div class="img-wrap"><img src="images/items/3.jpg"></div>
-      <figcaption class="info-wrap">
-          <h4 class="title">Product name goes here</h4>
-          <p class="desc">Some small description goes here</p>
-          <div class="rating-wrap">
-            <ul class="rating-stars">
-              <li style="width:80%" class="stars-active"> 
-                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-              </li>
-              <li>
-                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> 
-              </li>
-            </ul>
-            <div class="label-rating">132 reviews</div>
-            <div class="label-rating">154 orders </div>
-          </div> <!-- rating-wrap.// -->
-      </figcaption>
-      <div class="bottom-wrap">
-          <a href="" class="btn btn-sm btn-primary float-right">Order Now</a>	
-          <div class="price-wrap h5">
-            <span class="price-new">$1280</span> <del class="price-old">$1980</del>
-          </div> <!-- price-wrap.// -->
+      <div nclass="bottom-wrap">
+        <button (click)="addQuantity(product.data)">+</button>
+        <span>{{quantity}}</span>
+        <button (click)="reduceQuantity(product.data)">-</button>
       </div> <!-- bottom-wrap.// -->
     </figure>
   </div> <!-- col // -->

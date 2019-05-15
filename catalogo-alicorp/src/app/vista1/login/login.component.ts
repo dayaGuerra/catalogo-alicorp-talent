@@ -35,7 +35,6 @@ export class LoginComponent implements OnInit {
        console.log('ingrese')
          const codeUser = codigo;
          console.log(codeUser)
-
          const objData = {
            codigo:codeUser,
            nombre: obj.nombre,
@@ -46,7 +45,6 @@ export class LoginComponent implements OnInit {
          this.rutas.navigateByUrl('/vista2');
      }
     });
-      
     return filterUser;
   })
 }
