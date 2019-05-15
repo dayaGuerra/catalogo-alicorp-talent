@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 
 // firebase
 import { AngularFireModule } from '@angular/fire';
+import { AngularFirestore } from '@angular/fire/firestore';
+
 
 // eviroments
 import { environment } from '../environments/environment';
@@ -33,9 +35,10 @@ import { Vista2Component } from './vista2/vista2.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }
