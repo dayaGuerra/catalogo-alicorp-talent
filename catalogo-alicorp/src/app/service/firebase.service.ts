@@ -9,15 +9,20 @@ import { AngularFirestore } from '@angular/fire/firestore';
 @Injectable({
   providedIn: 'root'
 })
+
 export class FirebaseService {
 
   constructor(public firestore: AngularFirestore) { }
 
-  public getDataPersonal(){
+  getDataPersonal(){
     return this.firestore.collection('operarios').valueChanges();
   }
+  sendDataFirebase(objtSale) {
+    console.log(objtSale);
+    this.firestore.collection('ventas').add(objtSale);
+  }
 
-    public getDataProducts(){
+  getDataProducts(){
     return this.firestore.collection('productos').valueChanges();
   }
 
