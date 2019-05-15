@@ -31,7 +31,7 @@
                 <div class="input-group-prepend">
                   <button class="btn btn-secondary font-weight" type="button" id="inputGroupFileAddon03" (click)="reduceQuantity(products.indexOf(product))">-</button>
                 </div>
-                <div class="btn font-weight width"><span> {{quantity[products.indexOf(product)]}} </span>
+                <div class="btn font-weight width"><span> {{product.data.quantity}} </span>
                 </div>
                 <div class="custom-file">
                   <button type="button" class="btn btn-secondary font-weight" id="inputGroupFile03" (click)="addQuantity(products.indexOf(product))">+</button>

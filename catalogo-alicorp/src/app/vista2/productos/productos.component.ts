@@ -9,7 +9,6 @@ import { LocalService } from '../../service/local.service'
 })
 export class ProductosComponent implements OnInit {
   products = [];
-  quantity= {};
   order = [];
 
   constructor(public firebaseService : FirebaseService, private localService :LocalService 
@@ -21,33 +20,33 @@ export class ProductosComponent implements OnInit {
       ele.forEach((productData) => {
         this.products.push({
           data: {...productData,
-                 quantity: 1} 
+                 quantity: 0} 
         });
-        this.quantity[ele.indexOf(productData)] = 1;
       })
     });
 
   }
 
-/* getFilteredProducts(){
-
-} */
-
   addProduct(product, index) {
-   this.localService.sendToCart(product.data);
-   this.quantity[index] = 1;
+    if(product.data.quantity > 0) {
+   this.localService.sendToCart({ ...product.data});
+   product.quantity = 0
+   alert("Tu producto fue añadido con éxito al carrito de compras")
+    } else {
+      alert("Selecciona mínimo un producto")
+    }
   }
 
   addQuantity(index) {
-    if (this.quantity[index] < 10) {
-      this.quantity[index] += 1;
-      this.products[index].data.quantity += 1;
+    const prod = this.products[index].data
+    if (prod.quantity < 10) {
+      prod.quantity += 1;
     }
   }
   reduceQuantity(index) {
-    if (this.quantity[index] > 1) {
-      this.quantity[index] -= 1;
-      this.products[index].data.quantity -= 1;
+    const prod = this.products[index].data
+    if (prod.quantity > 0) {
+      prod.quantity -= 1;
     }
   }
 }
