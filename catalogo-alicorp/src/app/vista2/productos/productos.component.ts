@@ -48,7 +48,7 @@ funcionIniciarData(value){
   addProduct(product, index) {
     if(product.data.quantity > 0) {
    this.localService.sendToCart({ ...product.data});
-   product.quantity = 0
+   product.data.quantity = 0
    alert("Tu producto fue añadido con éxito al carrito de compras")
     } else {
       alert("Selecciona mínimo un producto")
