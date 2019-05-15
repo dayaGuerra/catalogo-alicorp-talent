@@ -20,4 +20,8 @@ export class FirebaseService {
     public getDataProducts(){
     return this.firestore.collection('productos').valueChanges();
   }
+
+  createOrder(prods){
+    return this.firestore.collection('orders').add(prods);
+  }
 }

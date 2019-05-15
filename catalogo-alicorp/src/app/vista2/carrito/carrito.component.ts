@@ -28,15 +28,19 @@ export class CarritoComponent implements OnInit {
     prod.quantity -= 1;
   }
 }
-  deleteItem(index){
-    console.log(index)
-   const newList = this.prodOrders.filter(product => {
-    console.log(this.prodOrders.indexOf(product)) 
-    this.prodOrders.indexOf(product) !== index})
+  deleteItem(ind){
+  const newList = this.prodOrders.filter((product, index) => {
+    return index != ind;
+  })
    this.prodOrders = newList;
-   console.log(newList)
+  }
 
-   console.log(this.prodOrders)
-
+  makeOrder(prods){
+    prods.forEach(prod => prod.subTotal = prod.precSug*prod.quantity)
+    this.localService.requestOrder(prods);
+    this.prodOrders = [];
+  }
+  totalOrder(){
+    
   }
 }

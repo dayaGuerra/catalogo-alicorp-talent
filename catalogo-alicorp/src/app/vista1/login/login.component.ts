@@ -4,7 +4,6 @@ import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../../service/firebase.service'
 import { LocalService } from '../../service/local.service'
 // importar ruteador
-
 import { Router } from '@angular/router';
 
 @Component({
@@ -41,8 +40,7 @@ export class LoginComponent implements OnInit {
            nombre: obj.nombre,
            dni: obj.dni
          }
-
-         //this.servicioLocal.codeUser(objData);
+         this.servicioLocal.codeUser(objData);
          this.rutas.navigateByUrl('/vista2');
      }
     });
