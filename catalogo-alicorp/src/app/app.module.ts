@@ -26,6 +26,7 @@ import { Vista2Component } from './vista2/vista2.component';
 // servicios
 import { FirebaseService } from './service/firebase.service';
 import { VentasComponent } from './vista2/ventas/ventas.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { VentasComponent } from './vista2/ventas/ventas.component';
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    FormsModule
   ],
   providers: [AngularFirestore],
   
