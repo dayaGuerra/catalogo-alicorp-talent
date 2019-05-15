@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit {
 
   userCodigo: string;
 
-
   constructor(
     public firebaseServicePersonal : FirebaseService, 
     private rutas: Router, 

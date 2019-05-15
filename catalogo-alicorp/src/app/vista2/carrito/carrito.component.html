@@ -1,3 +1,33 @@
-<p>
-  carrito works!
-</p>
+<div *ngFor="let prodOrder of prodOrders" class="row">
+  <div class="col-md-4">
+    <figure class="card card-product">
+      <div class="img-wrap"><img src="{{prodOrder.img}}"></div>
+      <figcaption class="info-wrap">
+        <p class="price-new"> {{prodOrder.nombre}}</p>
+        <p class="price-new"> {{prodOrder.marca}}</p>
+        <span class="price-new"> x{{prodOrder.unidades}} </span>
+        <span class="price-new">{{prodOrder.presentacion}}</span>
+        <p class="price-new"> {{prodOrder.precMay | currency:'S/ '}} cja.</p>
+        <p class="price-new"> P. Sug : {{prodOrder.precSug | currency:'S/ '}}</p>
+        <p class="price-new"> Sub Total</p>
+        <p class="price-new"> {{prodOrder.precSug*prodOrder.quantity | currency:'S/ '}}</p>
+      </figcaption>
+      <div nclass="bottom-wrap">
+        <button (click)="addFinalQty(prodOrder)">+</button>
+        <span>{{prodOrder.quantity}}</span>
+        <button (click)="redFinalQty(prodOrder)">-</button>
+      </div>
+      <div class="bottom-wrap">
+          <a (click)= "deleteItem([prodOrders.indexOf(prodOrder)])" class="btn btn-sm btn-primary float-right">Eliminar</a>
+      </div> <!-- bottom-wrap.// -->
+    </figure>
+  </div> <!-- col // -->
+</div> <!-- row.// -->
+
+
+<div class="bottom-wrap">
+    <a class="btn btn-sm btn-primary float-right">Realizar Compra</a>
+    <div class="price-wrap h5">
+    </div> <!-- price-wrap.// -->
+</div> <!-- bottom-wrap.// -->
+
