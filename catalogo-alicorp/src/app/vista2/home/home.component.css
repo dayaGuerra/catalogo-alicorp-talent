@@ -8,23 +8,21 @@
     background-size: cover;
   }
 
-  /* .home {
-    text-align: center;
-  }
-
   .text1{
-    font-size: 28px;
-  }
-
-  .text2{
-    font-size: 20px;
-  }
-
-  .text3{
     color: #76BD1D;
+    font-size: 25px;
+    margin-top: 40px;
+    margin-left: 20px;
   }
 
-  .count{
-    justify-content: center;
-    margin-bottom: 20px;
-  } */
+  .img-logo {
+    width: 40px;
+    margin-right: 10px;
+  }
+
+  .title {
+    width: 400px;
+    float: right;
+    background-color: #3f4141ab;
+    padding: 20px 10px;
+  }
