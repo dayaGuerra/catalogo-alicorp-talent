@@ -1,5 +1,5 @@
 .btn-ali{
-    background-color: #B40312
+    background-color: #E30728
 }
 
 .logo {
@@ -15,24 +15,43 @@
 
 .navbar-two {
     width: 100%;
-    background-color: #E30728;
+    background-color: #ffffff;
+    overflow: auto;
+  }
+
+  .navbar-tree {
+    width: 100%;
+    background-color: #323131;
     overflow: auto;
   }
   
   .navbar-two a {
     float: left;
     padding: 12px;
-    color: white;
+    color: #323131;
     text-decoration: none;
     font-size: 17px;
     width: 25%; /* Four links of equal widths */
     text-align: center;
   }
   
+  .navbar-tree a {
+    float: left;
+    padding: 12px;
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 17px;
+    width: 20%; /* Four links of equal widths */
+    text-align: center;
+  }
   .navbar-two a:hover {
     background-color: #B40312;
+    color: #ffffff
   }
-  
+  .navbar-tree a:hover {
+    background-color: #6EB32E;
+  }
   /*
   .navbar a.active {
     background-color: #B40312;
