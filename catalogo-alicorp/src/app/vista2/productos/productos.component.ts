@@ -29,7 +29,6 @@ export class ProductosComponent implements OnInit {
   addProduct(product, index) {
    this.localService.sendToCart(product.data);
    this.quantity[index] = 1;
-
   }
 
   addQuantity(index) {
