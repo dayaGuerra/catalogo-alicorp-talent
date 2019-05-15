@@ -3,7 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import { FirebaseService } from '../service/firebase.service'
 
 export interface RegisterSales {
-  productos : [],
+  productos: [],
 };
 
 @Injectable({
@@ -29,21 +29,20 @@ export class LocalService {
     this.listProductsSale = arrayProducts;
     const modelOrder: RegisterSales = {
       productos: this.listProductsSale,
-
-  }
+    }
     return this.firebaseService.sendDataFirebase(modelOrder);
- }
-sendToCart(prod){
-  this.productos.push(prod);
-  this.userOrder.next(this.productos);
+  }
+  sendToCart(prod) {
+    this.productos.push(prod);
+    this.userOrder.next(this.productos);
   }
 
-  requestOrder(prods){
-    this.firebaseService.createOrder({...prods});
+  requestOrder(prods) {
+    this.firebaseService.createOrder({ ...prods });
     this.productos = [];
   }
 
-  codeUser(codigoDeUsuario){
+  codeUser(codigoDeUsuario) {
     this.enviarCodigoUsuario = codigoDeUsuario;
     this.userCode.next(this.enviarCodigoUsuario);
   }

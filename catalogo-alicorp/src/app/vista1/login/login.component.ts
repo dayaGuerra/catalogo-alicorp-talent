@@ -38,7 +38,8 @@ export class LoginComponent implements OnInit {
          const objData = {
            codigo:codeUser,
            nombre: obj.nombre,
-           dni: obj.dni
+           dni: obj.dni,
+           inversion: obj.inversion
          }
          this.servicioLocal.codeUser(objData);
          this.rutas.navigateByUrl('/vista2');

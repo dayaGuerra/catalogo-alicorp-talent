@@ -73,7 +73,7 @@ export class VentasComponent implements OnInit {
     const newObjectSaleProduct = this.dataObjectProducts;
     console.log(newObjectSaleProduct);
     this.service.sendDataToService(newObjectSaleProduct);
-    return alert("se envio los datos del registro de tus ventas") 
+     alert("se envio los datos del registro de tus ventas") 
   }
   
 }
