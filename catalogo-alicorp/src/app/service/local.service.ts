@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {FirebaseService} from '../service/firebase.service';
 import { BehaviorSubject } from 'rxjs';
+import { FirebaseService } from '../service/firebase.service'
 
 export interface RegisterSales {
   productos : [],
@@ -23,8 +23,7 @@ export class LocalService {
   public userOrder = new BehaviorSubject([]);
   userOrderCart = this.userOrder.asObservable();
 
-  constructor(private firebaseService: FirebaseService) { }
-
+  constructor(public firebaseService: FirebaseService) { }
 
   sendDataToService(arrayProducts) {
     this.listProductsSale = arrayProducts;
@@ -37,8 +36,11 @@ export class LocalService {
 sendToCart(prod){
   this.productos.push(prod);
   this.userOrder.next(this.productos);
-  console.log(this.productos);
+  }
 
+  requestOrder(prods){
+    this.firebaseService.createOrder({...prods});
+    this.productos = [];
   }
 
   codeUser(codigoDeUsuario){
