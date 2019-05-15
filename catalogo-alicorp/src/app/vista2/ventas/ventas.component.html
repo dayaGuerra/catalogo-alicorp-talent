@@ -24,11 +24,7 @@
     <div class="col-md-3 col-lg-3">
         <label for="exampleFormControlSelect1">Productos</label>
         <select class="form-control" id="exampleFormControlSelect1" (change)="capturarProducto($event.target.value)">
-          <option>Aceite </option>
-          <option>Detergente </option>
-          <option>Tallarínes</option>
-          <option>Atún Primor </option>
-          <option>Jabón Bolívar </option>
+          <option *ngFor="let dataProducts of newArrayProducts">{{dataProducts}}</option>
         </select>
   </div>
       
@@ -51,17 +47,17 @@
       <th scope="col">PRODUCTO</th>
       <th scope="col">CANT.</th>
       <th scope="col">P. SUG</th>
-      <th scope="col">P. TOTAL</th>
-      <th scope="col">Borrrar</th>
+      <th scope="col">SUBTOTAL</th>
+      <th scope="col">BORRAR</th>
     </tr>
   </thead>
-  <tbody *ngFor= "let listProduct of dataObjectProducts ; let indice=index" >
+  <tbody *ngFor= "let listProduct of dataObjectProducts ; let indice=index; let dataPrice of precioSugerido" >
       <tr>
         <td >{{indice+1}}</td>
         <td >{{listProduct.productovendido}}</td>
         <td >{{listProduct.cantidad}}</td>
-        <td >{{listProduct.preciosugerido}}</td>  
-        <td >{{listProduct.stock}}</td>
+        <td >{{listProduct.preciosugerido.precSug}}</td>  
+        <td >{{subTotal(listProduct.cantidad, listProduct.preciosugerido.precSug)}}</td>
         <td><a (click)="deleteSaleProduct(listProduct.productovendido)"><img src="https://i.ibb.co/BqQFgkz/delete-button.png" alt="icono de borrar" class="img-delete"></a></td>
       </tr>
 
@@ -76,8 +72,7 @@
       <p class="form-control-static">  Venta Total </p> 
     </div>
     <div class="form-group mx-sm-3">
-      <label for="" class="sr-only"> S/. </label>
-      <input type="text" class="form-control" id="inputVentaTotal" placeholder="S/." readonly>
+      <span class="form-control" id="inputVentaTotal">S/.{{subTotalSale}}</span>
     </div>
   </form>
 
@@ -87,12 +82,11 @@
         <p class="form-control-static">  Ganancias de la Venta </p> 
     </div>
     <div class="form-group mx-sm-3 ">
-        <label for="" class="sr-only"> S/. </label>
-        <input type="text" class="form-control " id="inputVentaTotal" placeholder="S/." readonly>
+        <span class="form-control " id="inputVentaTotal">S/.{{ganancia(subTotalSale)}}</span>
     </div>
   </form>
 
-  <div class="d-flex justify-content-center margin-top-low">
+  <div class="d-flex justify-content-center margin-top-low total">
     <button type="button" class="width  btn  btn-lg btn-danger justify-content-center" (click)="sendDataSale()" routerlink="/congratulations">Guardar Venta Total</button>
   </div>
 </div>
