@@ -8,15 +8,13 @@ import { LocalService } from '../../service/local.service'
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
-user: any = [];
+  public user: any = [];
 
 
   constructor(
     public firebaseServicePersonal : FirebaseService,
     public servicioLocal : LocalService
-    ) { 
-  
-    }
+    ) { }
 
   ngOnInit() {
     this.dataUser();
@@ -27,6 +25,7 @@ user: any = [];
       this.user.push(obj);
     })
   }
+
 
 }
 

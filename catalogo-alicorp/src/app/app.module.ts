@@ -27,6 +27,7 @@ import { Vista2Component } from './vista2/vista2.component';
 import { FirebaseService } from './service/firebase.service';
 import { VentasComponent } from './vista2/ventas/ventas.component';
 import { FormsModule } from '@angular/forms';
+import { CongratulationsComponent } from './vista2/congratulations/congratulations.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { FormsModule } from '@angular/forms';
     CarritoComponent,
     PerfilComponent,
     Vista2Component,
-    VentasComponent
+    VentasComponent,
+    CongratulationsComponent
   ],
   imports: [
     BrowserModule,

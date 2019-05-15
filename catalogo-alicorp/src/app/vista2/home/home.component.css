@@ -1,0 +1,30 @@
+.carousel-item {
+    height: 100vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  /* .home {
+    text-align: center;
+  }
+
+  .text1{
+    font-size: 28px;
+  }
+
+  .text2{
+    font-size: 20px;
+  }
+
+  .text3{
+    color: #76BD1D;
+  }
+
+  .count{
+    justify-content: center;
+    margin-bottom: 20px;
+  } */
