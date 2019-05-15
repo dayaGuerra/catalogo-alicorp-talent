@@ -18,15 +18,22 @@
         <button (click)="redFinalQty(prodOrder)">-</button>
       </div>
       <div class="bottom-wrap">
-          <a (click)= "deleteItem([prodOrders.indexOf(prodOrder)])" class="btn btn-sm btn-primary float-right">Eliminar</a>
+          <a (click)= "deleteItem(prodOrders.indexOf(prodOrder))" class="btn btn-sm btn-primary float-right">Eliminar</a>
       </div> <!-- bottom-wrap.// -->
     </figure>
   </div> <!-- col // -->
 </div> <!-- row.// -->
 
+<div class="bottom-wrap">
+    <p class="price-new"> {{totalOrder()}}</p>
+</div> <!-- bottom-wrap.// -->
 
 <div class="bottom-wrap">
-    <a class="btn btn-sm btn-primary float-right">Realizar Compra</a>
+    <p class="price-new"> {{totalOrder()}}</p>
+  </div> <!-- bottom-wrap.// -->
+
+<div class="bottom-wrap">
+    <a (click) = "makeOrder(prodOrders)"class="btn btn-sm btn-primary float-right">Realizar Compra</a>
     <div class="price-wrap h5">
     </div> <!-- price-wrap.// -->
 </div> <!-- bottom-wrap.// -->
