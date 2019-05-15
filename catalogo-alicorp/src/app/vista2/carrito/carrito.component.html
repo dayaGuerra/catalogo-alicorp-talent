@@ -2,11 +2,11 @@
 
   <div class="d-flex justify-content-around margin-top">
 <div>
-    <span class="input-group-text">Mi Inversión: {{investment | currency:'S/ '}}.00</span>
+    <span class="input-group-text">Mi Inversión: {{investment | currency:'S/ '}}</span>
 </div>
 <div >
-    <select (change)="capturePlace($event.target.value)" class="custom-select" id="inputGroupSelect01">
-      <option value="Callao">Planta Callao</option>
+    <select  (change)="capturePlace($event.target.value)"  class="custom-select" id="inputGroupSelect01">
+      <option  value="Callao" selected>Planta Callao </option>
       <option value="Lurin">Planta Lurin</option>
       <option value="Huachipa">Planta Huachipa</option>
       </select>

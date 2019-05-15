@@ -53,15 +53,6 @@ export class LocalService {
     } else {
       prodExistente.quantity += prod.quantity
     }
-   /*  const arrIds = this.productos.map( producto => producto.id);
-    if(!arrIds.includes(prod.id)) { */
-    //this.productos.push(prod);
-    /* } else {
-    let elemRep = this.productos.find(producto => producto.id === prod.id);
-     console.log(`antes eran  ${elemRep.quantity} y ahora sa añaden ${prod.quantity}`)
-     elemRep.quantity += prod.quantity;
-    }
-   console.log(this.productos); */
     this.userOrder.next(this.productos);
   }
 
