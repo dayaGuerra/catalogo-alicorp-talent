@@ -23,6 +23,7 @@
     width: 100%;
     background-color: #323131;
     overflow: auto;
+    cursor: pointer;
   }
   
   .navbar-two a {
@@ -52,7 +53,4 @@
   .navbar-tree a:hover {
     background-color: #B40312;
   }
-  /*
-  .navbar a.active {
-    background-color: #B40312;
-  }*/
+

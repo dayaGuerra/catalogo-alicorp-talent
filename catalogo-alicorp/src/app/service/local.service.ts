@@ -15,9 +15,12 @@ export class LocalService {
 
   public usuario: string;
   public listProductsSale: [];
+  
   public dataUserSale: {};
   enviarCodigoUsuario: object[];
+
   productos = [];
+  public dato:string;
 
   public userCode = new BehaviorSubject([]);
   userCodePerfil = this.userCode.asObservable();
@@ -25,7 +28,13 @@ export class LocalService {
   public userOrder = new BehaviorSubject([]);
   userOrderCart = this.userOrder.asObservable();
 
-  constructor(public firebaseService: FirebaseService) { }
+  public filtrarDataComp = new BehaviorSubject('');
+  dataComponentFiltrar = this.filtrarDataComp.asObservable();
+
+
+  constructor(public firebaseService: FirebaseService) { 
+    this.filtrarData(this.dato)
+  }
 
   sendDataToService(arrayProducts, nameuser) {
     console.log(nameuser);
@@ -53,5 +62,11 @@ sendToCart(prod){
     }
     this.enviarCodigoUsuario = dataUserSale;
     this.userCode.next(this.enviarCodigoUsuario);
+  }
+
+  filtrarData(data:string){
+    this.dato = data;
+    // console.log('soy servicio', this.dato)
+    this.filtrarDataComp.next(this.dato);
   }
 }
