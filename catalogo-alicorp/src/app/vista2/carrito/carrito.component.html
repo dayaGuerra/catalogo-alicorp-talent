@@ -2,8 +2,10 @@
   <p>Inversión: {{investment | currency:'S/ '}}</p>
 </div>
 <div>
-    <select>
-      
+    <select (change)="capturePlace($event.target.value)">
+      <option value="Callao">Planta Callao</option>
+      <option value="Lurin">Planta Lurin</option>
+      <option value="Huachipa">Planta Huachipa</option>
     </select>
   </div>
 
@@ -41,10 +43,6 @@
 <div class="bottom-wrap">
     <p class="price-new"> Saldo: {{showBalance() | currency:'S/ '}}</p>
   </div> <!-- bottom-wrap.// -->
-
-  <div class="bottom-wrap">
-      <p class="price-new"> Ganancias: {{showEarnings() | currency:'S/ '}}</p>
-    </div> <!-- bottom-wrap.// -->
 
 <div class="bottom-wrap">
     <a (click) = "makeOrder(prodOrders)"class="btn btn-sm btn-primary float-right">Realizar Compra</a>
