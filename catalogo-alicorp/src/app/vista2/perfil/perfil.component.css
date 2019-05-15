@@ -1,0 +1,90 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin-top:20px;
+    text-align: center;
+    font-family: arial;
+  }
+  
+  .title {
+    color: grey;
+    font-size: 18px;
+  }
+  
+  button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+  }
+  
+  button:hover, a:hover {
+    opacity: 0.7;
+  }
+
+  .amarillo-color{
+    color: #F59B00;
+  }
+
+
+  /*cards*/
+
+  .margin-top{
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+.amarillo{
+    background-color: #F59B00;
+    color: #ffffff
+}
+.amarillo-color{
+    color:#F59B00;
+}
+
+.negro{
+    background-color: #323131;
+    color: #ffffff
+}
+
+.verde{
+    background-color: #6EB32E;
+    color: #ffffff
+}
+
+.font-whe{
+    font-weight: 700;
+}
+.font-size{
+    font-size:15px
+}
+
+
+
+.row-max-perfil{
+  max-width: 500px;
+}
+
+.line{
+  line-height: 5px
+}
+
+.margin-top{
+  margin-top: 30px;
+}
+
+.margin-bt{
+  margin-bottom: 15px
+}

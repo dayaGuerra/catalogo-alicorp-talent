@@ -1,0 +1,58 @@
+.ancho {
+    max-width: 500px;
+}
+
+.ancho-label{
+    max-width: 300px;
+    margin-left: 5px;
+}
+
+.btn-danger{
+    background-color: #B40312
+
+}
+
+.width{
+    max-width: 200px;
+}
+
+.color{
+    color: #B40312   
+}
+
+.margin-top{
+    margin-top: 100px;
+}
+
+.margin-top-low{
+    margin-top: 20px;
+}
+
+.margin-bottom{
+    margin-bottom: 40px;
+}
+
+.min-width{
+    min-width: 50px;
+    
+}
+
+.border-none{
+    border: none;
+}
+
+.logo {
+width: 166px;
+height: 47px;
+left: 97px;
+top: 141px;
+}
+
+.border-radius{
+    border-radius: 5px;
+}
+
+.text-contraseña{
+    color: #A9A9A9;
+    font-style: oblique;
+}

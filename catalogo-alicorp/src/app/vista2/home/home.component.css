@@ -1,0 +1,33 @@
+.carousel-item {
+    height: 30vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  .text1{
+    color: #76BD1D;
+    font-size: 25px;
+    margin-top: 40px;
+    margin-left: 20px;
+  }
+
+  .img-logo {
+    width: 40px;
+    margin-right: 10px;
+  }
+
+  .title {
+    width: 400px;
+    float: right;
+    background-color: #3f4141ab;
+    padding: 20px 10px;
+    font-family: 'Courgette', cursive;
+  }
+
+  .font-whe{
+    font-weight: 700;
+  }

@@ -1,0 +1,36 @@
+.input-group{
+    margin-top: 20px;
+    width: 30%;
+}
+
+.tamaño{
+ padding: 50px
+}
+
+.color-naranja{
+ color:  #f59b00;
+}
+
+.color-verde{
+    color:#6EB22E
+}
+
+.font-weight{
+    font-weight: 700
+}
+
+.bg-gris{
+    background-color: #EDE9E9
+}
+
+.btn-secondary{
+    background-color:#595858
+}
+
+.width{
+    max-width: 160px;
+}
+
+.hover-btn:hover{
+    background-color: #B40312
+}

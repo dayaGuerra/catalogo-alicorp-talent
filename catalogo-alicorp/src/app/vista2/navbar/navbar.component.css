@@ -1,0 +1,56 @@
+.btn-ali{
+    background-color: #E30728
+}
+
+.logo {
+    width: 166px;
+    height: 47px;
+    left: 97px;
+    top: 141px;
+    margin-left: 60px;
+}
+
+.max-width{
+  max-width: 300px;
+}
+
+.navbar-two {
+    width: 40%;
+    overflow: auto;
+  }
+
+  .navbar-tree {
+    width: 100%;
+    background-color: #323131;
+    overflow: auto;
+    cursor: pointer;
+  }
+  
+  .navbar-two a {
+    float: left;
+    padding: 12px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    width: 25%; /* Four links of equal widths */
+    text-align: center;
+  }
+  
+  .navbar-tree a {
+    float: left;
+    padding: 12px;
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 17px;
+    width: 20%; /* Four links of equal widths */
+    text-align: center;
+  }
+  .navbar-two a:hover {
+    background-color: #B40312;
+    color: #ffffff
+  }
+  .navbar-tree a:hover {
+    background-color: #B40312;
+  }
+

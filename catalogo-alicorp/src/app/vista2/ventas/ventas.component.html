@@ -1,0 +1,92 @@
+<h1 class ="text-center md-6 total" > Mi Venta </h1>
+<form class="col-10 center"> 
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">A quien vende</label>
+    <select class="form-control " id="exampleFormControlSelect1" (change)="capturarClienteFinal($event.target.value)">
+      <option value="tienda">Tienda</option>
+      <option value="familia">Familia</option>
+      <option value="amigos">Amigos</option>
+      <option value="otros">Otros</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Distrito</label>
+    <select class="form-control" id="exampleFormControlSelect1" (change)="capturarDistrito($event.target.value)" >
+      <option>Lima</option>
+      <option>Callao</option>
+      <option>Breña</option>
+      <option>Cercado de Lima</option>
+      <option>Santa Anita</option>
+    </select>
+  </div>
+  
+  <div class="form-group row">
+    <div class="col-md-3 col-lg-3">
+        <label for="exampleFormControlSelect1">Productos</label>
+        <select class="form-control" id="exampleFormControlSelect1" (change)="capturarProducto($event.target.value)">
+          <option *ngFor="let dataProducts of newArrayProducts">{{dataProducts}}</option>
+        </select>
+  </div>
+      
+    <div class="mount col-md-3 col-lg-3">
+      <label for="" class="text-summary">Cant.</label><br>
+      <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="cantidad" name="cantidadVendida" [(ngModel)]="cantidadVendida"> 
+      <label for="" class="text-summary">Und.</label><br>
+  
+    </div>
+    <a class="" (click)="addSale()"><img class="img-btn" src="https://i.ibb.co/XSd1931/plus.png" alt="icono de agregar"></a>
+  </div>
+
+  
+</form>
+
+<table class="table table-hover col-10 center">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">PRODUCTO</th>
+      <th scope="col">CANT.</th>
+      <th scope="col">P. SUG</th>
+      <th scope="col">SUBTOTAL</th>
+      <th scope="col">BORRAR</th>
+    </tr>
+  </thead>
+  <tbody *ngFor= "let listProduct of dataObjectProducts ; let indice=index; let dataPrice of precioSugerido" >
+      <tr>
+        <td >{{indice+1}}</td>
+        <td >{{listProduct.productovendido}}</td>
+        <td >{{listProduct.cantidad}}</td>
+        <td >{{listProduct.preciosugerido.precSug}}</td>  
+        <td >{{subTotal(listProduct.cantidad, listProduct.preciosugerido.precSug)}}</td>
+        <td><a (click)="deleteSaleProduct(listProduct.productovendido)"><img src="https://i.ibb.co/BqQFgkz/delete-button.png" alt="icono de borrar" class="img-delete"></a></td>
+      </tr>
+
+      <!-- <td>Total de pedido: {{obtenerTotal()}}</td> -->
+    </tbody>
+</table>
+
+<div class="col-10 center total">
+  <form class="form-inline">
+    <div class="form-group mount col-md-3 col-lg-3">
+      <label for="" class="sr-only"> Venta Total </label>
+      <p class="form-control-static">  Venta Total </p> 
+    </div>
+    <div class="form-group mx-sm-3">
+      <span class="form-control" id="inputVentaTotal">S/.{{subTotalSale}}</span>
+    </div>
+  </form>
+
+  <form class="form-inline">
+    <div class="form-group mount col-md-3 col-lg-3">
+        <label for="" class="sr-only"> Ganancias de la venta </label>
+        <p class="form-control-static">  Ganancias de la Venta </p> 
+    </div>
+    <div class="form-group mx-sm-3 ">
+        <span class="form-control " id="inputVentaTotal">S/.{{ganancia(subTotalSale)}}</span>
+    </div>
+  </form>
+
+  <div class="d-flex justify-content-center margin-top-low total">
+    <button type="button" class="width  btn  btn-lg btn-danger justify-content-center" (click)="sendDataSale()" routerlink="/congratulations">Guardar Venta Total</button>
+  </div>
+</div>
