@@ -1,3 +1,12 @@
+<div>
+  <p>Inversión: {{investment | currency:'S/ '}}</p>
+</div>
+<div>
+    <select>
+      
+    </select>
+  </div>
+
 <div *ngFor="let prodOrder of prodOrders" class="row">
   <div class="col-md-4">
     <figure class="card card-product">
@@ -10,7 +19,7 @@
         <p class="price-new"> {{prodOrder.precMay | currency:'S/ '}} cja.</p>
         <p class="price-new"> P. Sug : {{prodOrder.precSug | currency:'S/ '}}</p>
         <p class="price-new"> Sub Total</p>
-        <p class="price-new"> {{prodOrder.precSug*prodOrder.quantity | currency:'S/ '}}</p>
+        <p class="price-new"> {{subTotal(prodOrders.indexOf(prodOrder)) | currency:'S/ '}}</p>
       </figcaption>
       <div nclass="bottom-wrap">
         <button (click)="addFinalQty(prodOrder)">+</button>
@@ -25,12 +34,17 @@
 </div> <!-- row.// -->
 
 <div class="bottom-wrap">
-    <p class="price-new"> {{totalOrder()}}</p>
+    <span class="price-new"> Compra Total:</span>
+    <p class="price-new"> {{totalOrder() | currency:'S/ '}}</p>
 </div> <!-- bottom-wrap.// -->
 
 <div class="bottom-wrap">
-    <p class="price-new"> {{totalOrder()}}</p>
+    <p class="price-new"> Saldo: {{showBalance() | currency:'S/ '}}</p>
   </div> <!-- bottom-wrap.// -->
+
+  <div class="bottom-wrap">
+      <p class="price-new"> Ganancias: {{showEarnings() | currency:'S/ '}}</p>
+    </div> <!-- bottom-wrap.// -->
 
 <div class="bottom-wrap">
     <a (click) = "makeOrder(prodOrders)"class="btn btn-sm btn-primary float-right">Realizar Compra</a>

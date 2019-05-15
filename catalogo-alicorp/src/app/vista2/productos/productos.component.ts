@@ -64,7 +64,6 @@ if(  productData.categoria === value){
   addProduct(product, index) {
    this.llocalService.sendToCart(product.data);
    this.quantity[index] = 1;
-
   }
 
   addQuantity(index) {
