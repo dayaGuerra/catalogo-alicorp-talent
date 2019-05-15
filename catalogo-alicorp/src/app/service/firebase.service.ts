@@ -33,4 +33,8 @@ export class FirebaseService {
   createOrder(prods){
     return this.firestore.collection('orders').add(prods);
   }
+
+  getDataOrde() {
+    return this.firestore.collection('orders').valueChanges();
+  }
 }
