@@ -41,8 +41,9 @@ export class LoginComponent implements OnInit {
            dni: obj.dni,
            inversion: obj.inversion
          }
+
          this.servicioLocal.codeUser(objData);
-         this.rutas.navigateByUrl('/vista2');
+         this.rutas.navigateByUrl('/vista2/homepage');
      }
     });
     return filterUser;

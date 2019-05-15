@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../../service/firebase.service';
-import { LocalService } from '../../service/local.service'
+import { LocalService } from '../../service/local.service';
 
 @Component({
   selector: 'app-productos',
@@ -11,23 +11,58 @@ export class ProductosComponent implements OnInit {
   products = [];
   quantity= {};
   order = [];
+  dataImportantCategoria: string;
 
-  constructor(public firebaseService : FirebaseService, private localService :LocalService ) { }
-
-  ngOnInit() {
-    this.firebaseService.getDataProducts().subscribe(ele => {
-      ele.forEach((productData) => {
-        this.products.push({
-          data: {...productData,
-                 quantity: 1} 
-        });
-        this.quantity[ele.indexOf(productData)] = 1;
-      })
-    });
+  constructor(public firebaseService : FirebaseService, 
+    public llocalService : LocalService ) { 
+      
+      this.funcionIniciarData();
+      
   }
 
+  ngOnInit() {
+  //  this.filtrarDataNavBar();
+  }
+
+  /*filtrarDataNavBar(){
+    
+    this.llocalService.dataComponentFiltrar.subscribe((data:string) => {
+    this.dataImportantCategoria = data;
+    return this.funcionIniciarData(this.dataImportantCategoria)
+    });
+    
+  }*/
+
+funcionIniciarData(){
+
+  
+
+  this.firebaseService.getDataProducts().subscribe(ele => {
+    
+    ele.filter((productData) => {
+    /*  console.log(productData.categoria);
+      console.log('asdsfdgfsg',this.dataImportantCategoria);
+      
+if(  productData.categoria === value){
+  this.products.push(productData)
+}*/
+     this.products.push({
+        data: {...productData,
+               quantity: 1} 
+      });
+      this.quantity[ele.indexOf(productData)] = 1;
+    })
+  });
+}
+
+
+
+
+
+
+
   addProduct(product, index) {
-   this.localService.sendToCart(product.data);
+   this.llocalService.sendToCart(product.data);
    this.quantity[index] = 1;
   }
 
@@ -43,4 +78,8 @@ export class ProductosComponent implements OnInit {
       this.products[index].data.quantity -= 1;
     }
   }
+
+
+
+
 }

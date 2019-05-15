@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalService } from '../../service/local.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ventas',
@@ -17,9 +18,15 @@ export class VentasComponent implements OnInit {
   public precioSugerido: number;
   public stock: number;
   public dataObjectProducts = [];
+  public userData: {};
   
 
-  constructor( private service: LocalService) { }
+  constructor( private service: LocalService, private router: Router) { 
+    this.service.userCodePerfil.subscribe((obj: object) => {
+      console.log(obj);
+    this.userData = obj;
+    })
+  }
 
   ngOnInit() {
   }
@@ -71,9 +78,10 @@ export class VentasComponent implements OnInit {
 
   sendDataSale(){
     const newObjectSaleProduct = this.dataObjectProducts;
-    console.log(newObjectSaleProduct);
-    this.service.sendDataToService(newObjectSaleProduct);
-     alert("se envio los datos del registro de tus ventas") 
+    const nameSaleuser = this.userData;
+    // console.log(nameSaleuser);
+    this.service.sendDataToService(newObjectSaleProduct, nameSaleuser);
+    return this.router.navigateByUrl('/vista2/congratulations');
   }
   
 }

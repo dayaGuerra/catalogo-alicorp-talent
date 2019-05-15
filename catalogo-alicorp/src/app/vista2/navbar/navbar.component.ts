@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from '../../service/firebase.service'
+import { LocalService } from 'src/app/service/local.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,10 +8,38 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+ dataProducto=[];
 
-  constructor() { }
+  constructor(
+    public firestorProductoService: FirebaseService,
+    public servicioLocal: LocalService
+    ) {
+
+   }
 
   ngOnInit() {
   }
+
+filtrarCategoria(data:string){
+// console.log(data);
+this.servicioLocal.filtrarData(data);
+}
+
+
+
+ /* filtrarCategoria(data:string){
+    this.firestorProductoService.getDataProducts().subscribe( dataPr => {
+      // se crea una variable de tipo string donde se va a guardar el valor
+  const filterData =  dataPr.filter((obj: any ) => {
+
+     if(obj.categoria === data){
+        return obj;
+        console.log(obj);
+     }
+   });
+ 
+  this.dataProducto = filterData;
+});
+  }*/
 
 }
