@@ -1,15 +1,14 @@
-
-
 <div class="col-md-8">
 
-<div class="card" *ngFor="let data of user">
-  <img src="https://i.ibb.co/3rCbcXQ/active-blue-charity-1353351.jpg" alt="John" style="width:100%">
-  <h1>{{data.nombre}}</h1>
-  <p class="title">{{data.dni}}</p>
+  <div class="card" *ngFor="let data of user">
+    <img src="https://i.ibb.co/3rCbcXQ/active-blue-charity-1353351.jpg" alt="John" style="width:100%">
+    <h1>{{data.nombre}}</h1>
+    <p class="title">{{data.dni}}</p>
 
   <div style="margin: 24px 0;">
   </div>
   <p>Total de puntos: 1235</p>
 </div>
+<button type="button" class="btn btn-primary btn-lg btn-block" routerLink="">Cerrar Sesion</button>
 
 </div>

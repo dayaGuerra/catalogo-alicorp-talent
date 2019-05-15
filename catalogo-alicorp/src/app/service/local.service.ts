@@ -3,6 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import { FirebaseService } from '../service/firebase.service'
 
 export interface RegisterSales {
+  name: string;
   productos : [],
 };
 
@@ -14,7 +15,10 @@ export class LocalService {
 
   public usuario: string;
   public listProductsSale: [];
-  enviarCodigoUsuario: object[];;
+  
+  public dataUserSale: {};
+  enviarCodigoUsuario: object[];
+
   productos = [];
   public dato:string;
 
@@ -32,9 +36,11 @@ export class LocalService {
     this.filtrarData(this.dato)
   }
 
-  sendDataToService(arrayProducts) {
+  sendDataToService(arrayProducts, nameuser) {
+    console.log(nameuser);
     this.listProductsSale = arrayProducts;
     const modelOrder: RegisterSales = {
+      name: nameuser.nombre,
       productos: this.listProductsSale,
 
   }
@@ -50,8 +56,11 @@ sendToCart(prod){
     this.productos = [];
   }
 
-  codeUser(codigoDeUsuario){
-    this.enviarCodigoUsuario = codigoDeUsuario;
+  codeUser(objtDataUser){
+    const dataUserSale = {
+      ...objtDataUser
+    }
+    this.enviarCodigoUsuario = dataUserSale;
     this.userCode.next(this.enviarCodigoUsuario);
   }
 

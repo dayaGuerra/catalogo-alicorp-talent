@@ -7,7 +7,9 @@ import { EstadisticaComponent } from '../app/vista2/estadistica/estadistica.comp
 import { PerfilComponent } from '../app/vista2/perfil/perfil.component';
 import { CarritoComponent } from '../app/vista2/carrito/carrito.component';
 import { LoginComponent } from '../app/vista1/login/login.component';
-import { VentasComponent } from '../app/vista2/ventas/ventas.component'
+import { VentasComponent } from '../app/vista2/ventas/ventas.component';
+import { CongratulationsComponent } from '../app/vista2/congratulations/congratulations.component'
+
 
 
 const routes: Routes = [
@@ -19,7 +21,8 @@ const routes: Routes = [
       { path: 'ventas', component: VentasComponent},
       { path: 'stadistic', component: EstadisticaComponent},
       { path: 'profile', component: PerfilComponent},
-      { path: 'carrito', component: CarritoComponent}
+      { path: 'carrito', component: CarritoComponent},
+      { path: 'congratulations', component: CongratulationsComponent}
     ]}
 ];
 
