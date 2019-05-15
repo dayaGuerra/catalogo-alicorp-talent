@@ -10,22 +10,43 @@ import { LocalService } from '../../service/local.service'
 export class ProductosComponent implements OnInit {
   products = [];
   order = [];
+  dataImportantCategoria: string;
 
   constructor(public firebaseService : FirebaseService, private localService :LocalService 
-    ) { }
+    ) { 
+      this.filtrarDataNavBar();
+      this.funcionIniciarData(this.dataImportantCategoria);
+    }
 
   ngOnInit() {
 
-    this.firebaseService.getDataProducts().subscribe(ele => {
-      ele.forEach((productData) => {
-        this.products.push({
-          data: {...productData,
-                 quantity: 0} 
-        });
-      })
-    });
-
   }
+
+funcionIniciarData(value){
+  this.firebaseService.getDataProducts().subscribe(ele => {
+    this.products = [];
+    ele.forEach((productData:any) => {
+      if(!value || productData.categoria === value){
+      this.products.push({
+        data: {...productData,
+               quantity: 0} 
+        })
+      }
+      });
+    })
+  };
+
+
+
+  filtrarDataNavBar(){
+
+    this.localService.dataComponentFiltrar.subscribe((data:string) => {
+    this.dataImportantCategoria = data;
+    return this.funcionIniciarData(this.dataImportantCategoria)
+    });
+ 
+  }
+
 
   addProduct(product, index) {
     if(product.data.quantity > 0) {
