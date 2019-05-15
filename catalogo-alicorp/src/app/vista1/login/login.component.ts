@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit {
 
   userCodigo: string;
 
-
   constructor(
     public firebaseServicePersonal : FirebaseService, 
     private rutas: Router, 
@@ -40,7 +39,6 @@ export class LoginComponent implements OnInit {
            nombre: obj.nombre,
            dni: obj.dni
          }
-         
          this.servicioLocal.codeUser(objData);
          this.rutas.navigateByUrl('/vista2');
      }
