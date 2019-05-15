@@ -74,7 +74,7 @@ export class LocalService {
 
   filtrarData(data:string){
     this.dato = data;
-    // console.log('soy servicio', this.dato)
-    this.filtrarDataComp.next(this.dato);
+/*     this.firebaseService.getProducsByCat(data);
+ */    this.filtrarDataComp.next(this.dato);
   }
 }

@@ -14,7 +14,7 @@ export class CarritoComponent implements OnInit {
   finalBal = this.investment;
   name: string;
   earnings: number;
-
+  factory: string;
   constructor(private localService: LocalService) { }
 
   ngOnInit() {
@@ -77,6 +77,7 @@ export class CarritoComponent implements OnInit {
         saldoRestante: this.finalBal,
         nombre: this.name,
        ganancia: this.showEarnings(),
+       place: this.factory
        }
     );
     this.prodOrders = [];
@@ -94,5 +95,10 @@ export class CarritoComponent implements OnInit {
         total + prodB.subTotal, 0);
       return this.total;
     }
+  }
+
+  capturePlace(place){
+  this.factory = place;
+  console.log(this.factory)
   }
 }
