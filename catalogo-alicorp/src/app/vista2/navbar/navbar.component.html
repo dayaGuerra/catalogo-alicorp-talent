@@ -32,10 +32,11 @@
 
 
       <div class="navbar-tree">
-          <a class="flex-sm-fill text-sm-center nav-link active"> CONSERVAS</a> 
-          <a class="flex-sm-fill text-sm-center nav-link" routerLink="/vista2/"> ACEITES</a> 
-          <a class="flex-sm-fill text-sm-center nav-link" routerLink="/vista2/stadistic"> JABONES</a> 
-          <a class="flex-sm-fill text-sm-center nav-link" routerLink="/vista2/profile"> DETERGENTES</a>
-          <a class="flex-sm-fill text-sm-center nav-link" routerLink="/vista2/profile"> PASTAS</a>
+          <a class="flex-sm-fill text-sm-center nav-link" (click)="filtrarCategoria('conservas')"> CONSERVAS</a> 
+          <a class="flex-sm-fill text-sm-center nav-link" (click)="filtrarCategoria('aceites')"> ACEITES</a> 
+          <a class="flex-sm-fill text-sm-center nav-link" (click)="filtrarCategoria('jabones')"> JABONES</a> 
+          <a class="flex-sm-fill text-sm-center nav-link" (click)="filtrarCategoria('detergentes')"> DETERGENTES</a>
+          <a class="flex-sm-fill text-sm-center nav-link" (click)="filtrarCategoria('pastas')"> PASTAS</a>
         </div>
+
 
