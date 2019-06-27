@@ -5,8 +5,23 @@
 
   <!-- Page Heading -->
 
+  <!-- Page Heading -->
+
+  <owl-carousel-o [options]="customOptions">
+  <ng-template carouselSlide><img src="https://i.ibb.co/XSYBGwq/Group-47.png" alt="..." ></ng-template>
+  <ng-template carouselSlide><img src="https://i.ibb.co/cJBYjc2/Group-48.png" alt="..." ></ng-template>
+  <ng-template carouselSlide><img src="https://i.ibb.co/XSYBGwq/Group-47.png" alt="..." ></ng-template>
+</owl-carousel-o>
+
+
+<hr>
+  <!-- Page Heading -->
+
+  <h1 class="text1 font-whe"><img class="img-logo font-whe" src="https://i.ibb.co/7nwVcLS/HOJA-01.png" alt="hoja de logo">LOS PRODUCTOS MÁS VENDIDOS</h1>
+  <hr>
+
   <div   class="row">
-    <div *ngFor="let product of products" class="col-lg-2 col-sm-6 mb-4">
+    <div *ngFor="let product of products" class="col-lg-3 col-sm-6 mb-4">
 
       <div class="card shadow  bg-white rounded" >
         <img class="card-img-top tamaño-img d-flex justify-content-center" src="{{product.data.img}}" alt="producto">

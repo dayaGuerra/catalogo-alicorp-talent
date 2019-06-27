@@ -29,7 +29,7 @@
 
 
 .tamaño-img{
-padding: 12px;
+padding: 18px;
 }
 
 .altura-gris-producto{
@@ -40,7 +40,7 @@ padding: 12px;
 }
 
 .tamano-letra-producto{
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 800;
 }
  .margin-top{
@@ -48,7 +48,7 @@ padding: 12px;
  }
 
 .tamano-div-producto{
-  height: 50px;
+  height: 45px;
 }
 
 .tamano-de-boton{
@@ -56,7 +56,7 @@ padding: 12px;
 }
 
 .tamano-letra-btn{
-  font-size: 10px;
+  font-size: 16px;
   font-weight: 800;
 }
 
@@ -72,5 +72,33 @@ padding: 12px;
   border-radius: 0px
 }
 
+.hola {
+  background-color: #B40312
+}
+
+.borde-de-imagen{
+  border: #595858 solid 1px;
+  border-radius: 15px;
+  width: 50%
+}
+
+.margin-slider{
+  margin-left: 15px;
+}
+
+.text1{
+  color: #76BD1D;
+  font-size: 25px;
+  margin-top: 40px;
+  margin-left: 20px;
+}
+.img-logo {
+  width: 40px;
+  margin-right: 10px;
+}
 
 
+
+.font-whe{
+  font-weight: 700;
+}

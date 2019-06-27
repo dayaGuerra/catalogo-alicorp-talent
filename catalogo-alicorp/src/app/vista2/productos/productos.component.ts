@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../../service/firebase.service';
 import { LocalService } from '../../service/local.service'
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-productos',
@@ -12,13 +13,36 @@ export class ProductosComponent implements OnInit {
   order = [];
   dataimport: string;
 
-  constructor(public firebaseService : FirebaseService, private localService :LocalService 
-    ) { 
+  customOptions: OwlOptions = {
+    loop: true,
+    margin:10,
+    nav: true,
+    navText: ['back', 'next'],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 4
+      }
+    }
+
+  }
+
+  constructor(public firebaseService : FirebaseService, private localService :LocalService
+    ) {
       this.funcionIniciarData(this.dataimport)
     }
 
   ngOnInit() {
-   this.filtrarDataNavBar()
+   this.filtrarDataNavBar();
+
   }
 
   filtrarDataNavBar(){
@@ -35,7 +59,7 @@ funcionIniciarData(value){
       if(!value || productData.categoria === value){
       this.products.push({
         data: {...productData,
-               quantity: 0} 
+               quantity: 0}
       });
     }
     })
