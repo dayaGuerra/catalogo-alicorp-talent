@@ -76,7 +76,6 @@ export class CarritoComponent implements OnInit {
        }
     );
     this.prodOrders = [];
-   this.router.navigateByUrl('/vista2/congratulations');
   }
 
   showEarnings() {

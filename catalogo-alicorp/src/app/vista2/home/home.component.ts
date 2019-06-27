@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { LocalService } from '../../service/local.service'
+
 
 @Component({
   selector: 'app-home',
@@ -8,25 +8,24 @@ import { LocalService } from '../../service/local.service'
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  @ViewChild('content')
+  private contentTemp: TemplateRef<any>;
+
   closeResult: string;
   model = 1;
-  public content : any;
-  modalContainer : any;
 
-  constructor(private modalService: NgbModal, private localService: LocalService) { }
+  constructor(private modalService: NgbModal) { }
 
 
   ngOnInit() {
-      this.localService.dataModal.subscribe((obj) => {
-        this.modalContainer = obj;
-        console.log(this.modalContainer);
-      this.modalService.open(obj, { centered: true, ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
-        this.closeResult = `Closed with: ${result}`;
-      }, (reason) => {
-        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-      });
-    })
+    console.log(this.contentTemp)
+    this.modalService.open(this.contentTemp, { centered: true, ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
   }
+
 
 
   private getDismissReason(reason: any): string {

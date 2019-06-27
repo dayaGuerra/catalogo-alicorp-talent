@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   }
 
 
-  dataPersonal(codigo, password, content){
+  dataPersonal(codigo, password){
     this.firebaseServicePersonal.getDataPersonal().subscribe( data => {
    console.log(data)
     const filterUser = data.filter((obj:any) => {
@@ -39,14 +39,19 @@ export class LoginComponent implements OnInit {
            codigo:codeUser,
            nombre: obj.nombre,
            dni: obj.dni,
-           inversion: obj.inversion
+           inversion: obj.inversion,
+           distrito: obj.distrito,
+           ventas: obj.ventas,
+           gananciaMes: obj.gananciaMes,
+           ventasMes: obj.ventasMes,
+           ventasSemana: obj.ventasSemana,
+           puntosSemana: obj. puntosSemana,
+           gananciaSemana: obj.gananciaSemana,
+           puntosMes: obj.puntosMes
          }
 
          this.servicioLocal.codeUser(objData);
          this.rutas.navigateByUrl('/vista2/homepage');
-         this.servicioLocal.sendModal(content);
-         console.log('content')
-
      }
     });
     return filterUser;

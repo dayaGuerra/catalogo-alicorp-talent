@@ -8,7 +8,7 @@ import { LocalService } from '../../service/local.service'
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
-  public user: any = [];
+  public user: any;
 
 
   constructor(
@@ -22,8 +22,9 @@ export class PerfilComponent implements OnInit {
 
   dataUser(){
     this.servicioLocal.userCodePerfil.subscribe((obj: object) => {
-      this.user.push(obj);
+      this.user = obj;
     })
+    console.log(this.user)
   }
 
 
