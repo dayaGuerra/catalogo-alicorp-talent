@@ -1,4 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -28,7 +30,8 @@ import { FormsModule } from '@angular/forms';
 import { CongratulationsComponent } from './vista2/congratulations/congratulations.component';
 
 // pipe
-
+ //owl estilos
+ import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
 @NgModule({
@@ -43,15 +46,20 @@ import { CongratulationsComponent } from './vista2/congratulations/congratulatio
     PerfilComponent,
     Vista2Component,
     VentasComponent,
-    CongratulationsComponent
+    CongratulationsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    FormsModule
+    FormsModule,
+    CarouselModule,
+
   ],
-  providers: [AngularFirestore],
+  providers: [
+    AngularFirestore,
+    BrowserAnimationsModule
+  ],
 
   bootstrap: [AppComponent]
 

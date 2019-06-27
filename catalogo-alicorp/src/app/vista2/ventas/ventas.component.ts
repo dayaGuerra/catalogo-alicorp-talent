@@ -58,8 +58,6 @@ export class VentasComponent implements OnInit {
       this.objectListProducts = valueObj
 
       const eleUno = valueObj.map((p: any) => p.nombre );
-
-     
        this.newArrayProducts = eleUno;
       
        console.log('hola', eleUno)

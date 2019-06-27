@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../../service/firebase.service';
 import { LocalService } from '../../service/local.service'
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-productos',
@@ -10,26 +11,68 @@ import { LocalService } from '../../service/local.service'
 export class ProductosComponent implements OnInit {
   products = [];
   order = [];
+  dataimport: string;
 
-  constructor(public firebaseService : FirebaseService, private localService :LocalService 
-    ) { }
-
-  ngOnInit() {
-    this.firebaseService.getDataProducts().subscribe(ele => {
-      ele.forEach((productData) => {
-        this.products.push({
-          data: {...productData,
-                 quantity: 0} 
-        });
-      })
-    });
+  customOptions: OwlOptions = {
+    loop: true,
+    margin:10,
+    nav: true,
+    navText: ['back', 'next'],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 4
+      }
+    }
 
   }
+
+  constructor(public firebaseService : FirebaseService, private localService :LocalService
+    ) {
+      this.funcionIniciarData(this.dataimport)
+    }
+
+  ngOnInit() {
+   this.filtrarDataNavBar();
+
+  }
+
+  filtrarDataNavBar(){
+    this.localService.dataComponentFiltrar.subscribe((data:string) => {
+      this.dataimport = data;
+      return this.funcionIniciarData(this.dataimport)
+      });
+  }
+
+funcionIniciarData(value){
+  this.firebaseService.getDataProducts().subscribe(ele => {
+    this.products=[];
+    ele.forEach((productData:any) => {
+      if(!value || productData.categoria === value){
+      this.products.push({
+        data: {...productData,
+               quantity: 0}
+      });
+    }
+    })
+  });
+
+}
+
+
 
   addProduct(product, index) {
     if(product.data.quantity > 0) {
    this.localService.sendToCart({ ...product.data});
-   product.quantity = 0
+   product.data.quantity = 0
    alert("Tu producto fue añadido con éxito al carrito de compras")
     } else {
       alert("Selecciona mínimo un producto")
