@@ -31,6 +31,8 @@ export class LocalService {
   public filtrarDataComp = new BehaviorSubject('');
   dataComponentFiltrar = this.filtrarDataComp.asObservable();
 
+  public contentModal = new BehaviorSubject('');
+  dataModal = this.contentModal.asObservable();
 
   constructor(public firebaseService: FirebaseService) { 
     this.filtrarData(this.dato)
@@ -54,6 +56,11 @@ export class LocalService {
       prodExistente.quantity += prod.quantity
     }
     this.userOrder.next(this.productos);
+  }
+
+  sendModal(content) {
+    console.log(content)
+    this.contentModal.next(content);
   }
 
   requestOrder(prods) {

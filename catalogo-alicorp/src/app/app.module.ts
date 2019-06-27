@@ -27,9 +27,8 @@ import { VentasComponent } from './vista2/ventas/ventas.component';
 import { FormsModule } from '@angular/forms';
 import { CongratulationsComponent } from './vista2/congratulations/congratulations.component';
 
-// pipe
-
-
+// Ng Bootsrap
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -49,7 +48,8 @@ import { CongratulationsComponent } from './vista2/congratulations/congratulatio
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [AngularFirestore],
 

@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   }
 
 
-  dataPersonal(codigo, password){
+  dataPersonal(codigo, password, content){
     this.firebaseServicePersonal.getDataPersonal().subscribe( data => {
    console.log(data)
     const filterUser = data.filter((obj:any) => {
@@ -44,6 +44,9 @@ export class LoginComponent implements OnInit {
 
          this.servicioLocal.codeUser(objData);
          this.rutas.navigateByUrl('/vista2/homepage');
+         this.servicioLocal.sendModal(content);
+         console.log('content')
+
      }
     });
     return filterUser;
