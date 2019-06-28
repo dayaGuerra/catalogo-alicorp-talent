@@ -78,7 +78,6 @@ export class CarritoComponent implements OnInit {
        place: this.factory
        }
     );
-    
     this.modalService.open(content, { centered: true, ariaLabelledBy: 'modal-basic-title', backdrop: "static" }).result.then((result) => {
       this.router.navigateByUrl('/vista2/homepage');
       this.closeResult = `Closed with: ${result}`;
@@ -88,7 +87,7 @@ export class CarritoComponent implements OnInit {
 
   showEarnings() {
     if (this.prodOrders.length >= 1) {
-      this.earnings = this.prodOrders.reduce((total ,prodA) => total + prodA.ganancia*prodA.quantity, 0);
+      this.earnings =  parseFloat((this.prodOrders.reduce((total ,prodA) => total + prodA.ganancia*prodA.quantity, 0)).toFixed(2));
       return this.earnings;
     }
   }

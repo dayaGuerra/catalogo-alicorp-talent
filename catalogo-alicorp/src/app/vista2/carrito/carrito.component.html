@@ -70,7 +70,7 @@
   </table>
 
   <div class="bottom-wrap margin-bottom">
-    <a (click)="makeOrder(prodOrders, content)" class="btn btn-danger btn-lg  float-right">Realizar Compra</a>
+    <a (click)="makeOrder(prodOrders, content)" class="btn orange btn-lg  float-right">Realizar Compra</a>
   </div>
 
 
@@ -78,13 +78,16 @@
   <ng-template #content let-modal>
     <div class="modal-header d-flex flex-column align-items-center">
       <div class="d-flex flex-column align-items-center">
-        <img class="rounded mx-auto d-block" src="https://i.ibb.co/kXzWBcT/carrito.png">
-        <p class="confirm-title">¡Muy bien!</p>
-        <p class="confirm-product"> En esta compra estarás ganando aproximadamente {{showEarnings()}}</p>
-        <span class="confirm-product">S/.</span>
-        <p class="span-cont confirm-product">Si vendes a precios sugeridos</p>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Send click')">Continuar</button>
+        <img class="rounded mx-auto d-block" src="https://i.ibb.co/MZ9y4wN/hands.png">
+        <p class="span-send send-title red-alicorp">¡Muy bien!</p>
+        <div class="d-flex flex-column align-items-center span-send">
+          <p class="send-product"> En esta compra estarás ganando </p>
+          <p class="send-product"> aproximadamente </p>
+        </div>
+        <span class="send-title green span-send">{{earnings | currency:'S/ '}}</span>
+        <p class="send-product span-send">Si vendes a precios sugeridos</p>
+        <div class="modal-footer span-send">
+          <button type="button" class="btn btn-danger" (click)="modal.close('Send click')">Continuar</button>
         </div>
       </div>
     </div>
