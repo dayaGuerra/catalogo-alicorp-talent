@@ -118,7 +118,7 @@ export class VentasComponent implements OnInit {
 
   gananciaTotal(earning: number){
     this.earningTotal = this.percentSale + earning;
-    return this.earningTotal.toFixed(2);
+    return parseFloat(this.earningTotal.toFixed(2));
   }
 
   deleteSaleProduct(indice: any) {
