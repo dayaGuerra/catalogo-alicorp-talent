@@ -4,19 +4,18 @@
 
     <!-- Project One -->
     <div class="row margin-top">
-      <div class="col-md-4" *ngFor="let data of user">
+      <div class="col-md-4">
         <a href="#">
           <img class="tmno img-fluid rounded mb-3 mb-md-0" src="https://i.ibb.co/M7n5C2Z/familia2.jpg" alt="Profile">
         </a>
       </div>
       <div class="col-md-7">
         <div class="font-whe line">
-        <h3>José Luis Romero</h3>
+        <h3>{{user.nombre}}</h3>
         <p>20 AÑOS TRABAJANDO PARA ÁLICORP</p>
-        <p>SURCO</p>
+        <p>{{user.distrito}}</p>
         <p><span><i class="fas fa-mobile-alt"></i></span> 977-420-160</p>
       </div>
-
         <div class="row">
           <div class="col-lg-4 col-sm-6 mb-4 a">
             

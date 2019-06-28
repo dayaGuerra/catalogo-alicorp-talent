@@ -10,7 +10,7 @@
         <!-- Slide One - Set the background image for this slide in the line below -->
         <div class="carousel-item active" style="background-image: url('https://i.ibb.co/2Sdz5cZ/familia.jpg')">
           <div class="carousel-caption d-none d-md-block">
-            <h2 class="display-4 d-flex justify-content-end title">Lideramos con pasion</h2>
+            <h2 class="display-4 d-flex justify-content-end title">Lideramos con pasión</h2>
           </div>
         </div>
         <!-- Slide Two - Set the background image for this slide in the line below -->
@@ -40,3 +40,13 @@
  <div class="container">
   <app-productos></app-productos>
  </div>
+
+ <ng-template  #content let-modal >
+  <div class="modal-header d-flex flex-column align-items-end">
+      <button type="button" class=" btn btn-danger btn-circle p-2" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span class="fa" aria-hidden="true">&times;</span>
+        </button>
+    <img class="rounded mx-auto d-block" src="https://i.ibb.co/Qdrt8WJ/Modal-Puntos.png">
+  </div>
+</ng-template>
+

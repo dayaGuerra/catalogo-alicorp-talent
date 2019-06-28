@@ -29,10 +29,11 @@ import { VentasComponent } from './vista2/ventas/ventas.component';
 import { FormsModule } from '@angular/forms';
 import { CongratulationsComponent } from './vista2/congratulations/congratulations.component';
 
+// Ng Bootsrap
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 // pipe
  //owl estilos
- import { CarouselModule } from 'ngx-owl-carousel-o';
-
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
   declarations: [
@@ -53,12 +54,12 @@ import { CongratulationsComponent } from './vista2/congratulations/congratulatio
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     FormsModule,
+    NgbModule,
     CarouselModule,
-
+    BrowserAnimationsModule
   ],
   providers: [
     AngularFirestore,
-    BrowserAnimationsModule
   ],
 
   bootstrap: [AppComponent]

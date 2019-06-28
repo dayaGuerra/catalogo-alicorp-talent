@@ -1,22 +1,48 @@
 
-.color-naranja{
- color:  #f59b00;
+.color-naranja {
+  color: #f59b00;
 }
 
-.color-verde{
-    color:#6EB22E
+.color-verde {
+  color: #6EB22E
 }
 
-.font-weight{
-    font-weight: 700
+.font-weight {
+  font-weight: 700
 }
 
-.bg-gris{
-    background-color: #EDE9E9
+.bg-gris {
+  background-color: #EDE9E9
 }
 
-.btn-secondary{
-    background-color:#595858
+.btn-secondary {
+  background-color: #595858
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  padding: 6px 0px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42857;
+}
+
+.confirm-title {
+  color: #E30728;
+  font-size: 1.5rem;
+  line-height: 27px;
+}
+
+.confirm-product {
+  font-size: 1.25rem;
+  line-height: 18px;
+  color: #323131;
+}
+
+.span-cont{
+  padding: 8% 0%;
 }
 
 .width{
