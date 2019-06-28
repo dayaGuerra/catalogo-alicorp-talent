@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../../service/firebase.service';
 import { LocalService } from '../../service/local.service'
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
@@ -12,6 +13,8 @@ export class ProductosComponent implements OnInit {
   products = [];
   order = [];
   dataimport: string;
+  closeResult: string;
+  model = 1;
 
   customOptions: OwlOptions = {
     loop: true,
@@ -32,24 +35,23 @@ export class ProductosComponent implements OnInit {
         items: 4
       }
     }
-
   }
 
-  constructor(public firebaseService : FirebaseService, private localService :LocalService
-    ) {
-      this.funcionIniciarData(this.dataimport)
-    }
+  constructor(public firebaseService: FirebaseService, private localService: LocalService, private modalService: NgbModal
+  ) {
+    this.funcionIniciarData(this.dataimport)
+  }
+
 
   ngOnInit() {
-   this.filtrarDataNavBar();
-
+    this.filtrarDataNavBar()
   }
 
-  filtrarDataNavBar(){
-    this.localService.dataComponentFiltrar.subscribe((data:string) => {
+  filtrarDataNavBar() {
+    this.localService.dataComponentFiltrar.subscribe((data: string) => {
       this.dataimport = data;
       return this.funcionIniciarData(this.dataimport)
-      });
+    });
   }
 
 funcionIniciarData(value){
@@ -67,15 +69,27 @@ funcionIniciarData(value){
 
 }
 
-
-
-  addProduct(product, index) {
-    if(product.data.quantity > 0) {
-   this.localService.sendToCart({ ...product.data});
-   product.data.quantity = 0
-   alert("Tu producto fue añadido con éxito al carrito de compras")
+  addProduct(product, index, content) {
+    if (product.data.quantity > 0) {
+      this.localService.sendToCart({ ...product.data });
+      this.modalService.open(content, { centered: true, ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+        this.closeResult = `Closed with: ${result}`;
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        product.data.quantity = 0
+      });
     } else {
       alert("Selecciona mínimo un producto")
+    }
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
     }
   }
 
