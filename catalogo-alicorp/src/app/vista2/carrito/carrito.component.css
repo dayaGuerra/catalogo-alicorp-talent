@@ -1,66 +1,95 @@
-.naranja{
-   color: #F59B00
+.naranja {
+  color: #F59B00
 }
 
-.min-tam{
- width: 35%;
+.min-tam {
+  width: 35%;
 }
 
 /*producto*/
 
-.input-group{
-    margin-top: 20px;
-    width: 30%;
+.input-group {
+  margin-top: 20px;
+  width: 30%;
 }
 
-.tamaño{
- padding: 50px
+.tamaño {
+  padding: 50px
 }
 
-.color-naranja{
- color:  #f59b00;
+.color-naranja {
+  color: #f59b00;
 }
 
-.color-verde{
-    color:#6EB22E
+.color-verde {
+  color: #6EB22E
 }
 
-.font-weight{
-    font-weight: 700
+.font-weight {
+  font-weight: 700
 }
 
-.bg-gris{
-    background-color: #EDE9E9
+.bg-gris {
+  background-color: #EDE9E9
 }
 
-.btn-secondary{
-    background-color:#595858
+.btn-secondary {
+  background-color: #595858
 }
 
-.width{
-    max-width: 160px;
+.width {
+  max-width: 160px;
 }
 
-.cursor{
-    cursor: pointer;
-}
-.margin-top{
-    margin-top: 30px;
+.cursor {
+  cursor: pointer;
 }
 
-.btn-danger{
-    background-color:   #f59b00;
-    border: none;
+.margin-top {
+  margin-top: 30px;
 }
 
-.line{
-    line-height: 10px;
+.orange {
+  background-color: #f59b00;
+  border: none;
 }
 
-.font-size{
-    font-size: 25px
+.line {
+  line-height: 10px;
 }
 
-.margin-bottom{
-    margin-bottom: 30px;
+.font-size {
+  font-size: 25px
+}
+
+.margin-bottom {
+  margin-bottom: 30px;
+}
+
+.send-title {
+  font-size: 1.5rem;
+  line-height: 27px;
+}
+
+.earnings-number {
+  font-size: 1.8rem;
+  line-height: 27px;
+}
+
+.red-alicorp {
+  color: #E30728;
+}
+
+.green {
+  color: #76BD1D;
+}
+
+.send-product {
+  font-size: 1.25rem;
+  line-height: 18px;
+  color: #323131;
+}
+
+.span-send {
+  padding: 3% 0%;
 }
