@@ -3,45 +3,74 @@
 
   <!-- Page Heading -->
 
+  <!-- Page Heading -->
+
+  <owl-carousel-o [options]="customOptions">
+    <ng-template carouselSlide><img src="https://i.ibb.co/XSYBGwq/Group-47.png" alt="..."></ng-template>
+    <ng-template carouselSlide><img src="https://i.ibb.co/cJBYjc2/Group-48.png" alt="..."></ng-template>
+    <ng-template carouselSlide><img src="https://i.ibb.co/XSYBGwq/Group-47.png" alt="..."></ng-template>
+  </owl-carousel-o>
+
+
+  <hr>
+  <!-- Page Heading -->
+
+  <h1 class="text1 font-whe"><img class="img-logo font-whe" src="https://i.ibb.co/7nwVcLS/HOJA-01.png"
+      alt="hoja de logo">LOS PRODUCTOS MÁS VENDIDOS</h1>
+  <hr>
+
   <div class="row">
-    <div *ngFor="let product of products" class="col-lg-4 col-sm-6 mb-4">
+    <div *ngFor="let product of products" class="col-lg-3 col-sm-6 mb-4">
 
-      <div class="card h-100 ">
-        <img class="card-img-top tamaño d-flex justify-content-center" src="{{product.data.img}}" alt="producto">
-        <div class="card-body bg-gris">
+      <div class="card shadow  bg-white rounded">
+        <img class="card-img-top tamaño-img d-flex justify-content-center" src="{{product.data.img}}" alt="producto">
+        <div class="d-flex flex-column bd-highlight mb-3">
 
-          <div class="d-flex justify-content-center ">
-            <h3 class="price-new color-verde font-weight"> {{product.data.precMay | currency:'S/ '}} cja.</h3>
+          <div class="p-2 bd-highlight text-center">
+            <h3 class="price-new color-verde  tamano-letra-precio font-weight">
+              {{product.data.precMay | currency:'S/ '}} cja.</h3>
           </div>
-          <div class="d-flex justify-content-center">
-            <h5 class="title text-center">{{product.data.nombre}}</h5>
+          <div class="p-2 bd-highlight tamano-div-producto">
+
+            <h5 class="title tamano-letra-producto text-center ">{{product.data.nombre}}</h5>
+
           </div>
-          <div class="d-flex justify-content-center">
-            <h4 class="desc text-center color-naranja font-weight">{{product.data.marca}} </h4>
+
+          <div class="p-2 bd-highlight">
+
+            <h4 class=" text-center color-naranja">{{product.data.marca | uppercase}} </h4>
+
           </div>
-          <div class="d-flex justify-content-center">
+
+          <div class="p-2 bd-highlight text-center">
             <span class="desc">x {{product.data.unidades}} {{product.data.presentacion}} </span>
           </div>
 
 
-          <div class="d-flex justify-content-center">
-            <div class="input-group mb-3 ">
-              <div class="input-group-prepend">
-                <button class="btn btn-secondary font-weight hover-btn" type="button" id="inputGroupFileAddon03"
-                  (click)="reduceQuantity(products.indexOf(product))">-</button>
-              </div>
-              <div class="btn font-weight width"><span> {{product.data.quantity}} </span>
-              </div>
-              <div class="custom-file">
-                <button type="button" class="btn btn-secondary font-weight hover-btn" id="inputGroupFile03"
-                  (click)="addQuantity(products.indexOf(product))">+</button>
-              </div>
+
+
+          <div class="d-flex justify-content-center grupo-de-btn">
+
+            <div class="custom-file">
+              <button class="btn btn-secondary font-weight hover-btn" type="button" id="inputGroupFileAddon03"
+                (click)="reduceQuantity(products.indexOf(product))">-</button>
             </div>
+
+            <div class="font-weight width"><span> {{product.data.quantity}} </span>
+            </div>
+
+            <div class="custom-file">
+              <button type="button" class="btn btn-secondary font-weight hover-btn" id="inputGroupFile03"
+                (click)="addQuantity(products.indexOf(product))">+</button>
+            </div>
+
           </div>
+
+
         </div>
-        <div class="d-flex justify-content-center">
+        <div class="d-flex borde-de-btn justify-content-center  tamano-de-boton">
           <button (click)="addProduct(product, products.indexOf(product), content)"
-            class="btn btn-secondary btn-lg btn-block hover-btn">AGREGAR AL CARRITO</button>
+            class="btn btn-secondary btn-lg btn-block hover-btn tamano-letra-btn">AGREGAR AL CARRITO</button>
         </div>
       </div>
 

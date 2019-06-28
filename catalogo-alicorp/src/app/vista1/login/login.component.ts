@@ -40,16 +40,8 @@ export class LoginComponent implements OnInit {
            nombre: obj.nombre,
            dni: obj.dni,
            inversion: obj.inversion,
-           distrito: obj.distrito,
-           ventas: obj.ventas,
-           gananciaMes: obj.gananciaMes,
-           ventasMes: obj.ventasMes,
-           ventasSemana: obj.ventasSemana,
-           puntosSemana: obj. puntosSemana,
-           gananciaSemana: obj.gananciaSemana,
-           puntosMes: obj.puntosMes
+           distrito: obj.distrito
          }
-
          this.servicioLocal.codeUser(objData);
          this.rutas.navigateByUrl('/vista2/homepage');
      }

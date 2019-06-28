@@ -1,21 +1,21 @@
 <div class="container">
 
   <div class="d-flex justify-content-around margin-top">
-<div>
-    <span class="input-group-text">Mi Inversión: {{investment | currency:'S/ '}}</span>
-</div>
-<div >
-    <select  (change)="capturePlace($event.target.value)"  class="custom-select" id="inputGroupSelect01">
-      <option  value="Callao" selected>Planta Callao </option>
-      <option value="Lurin">Planta Lurin</option>
-      <option value="Huachipa">Planta Huachipa</option>
+    <div>
+      <span class="input-group-text">Mi Inversión: {{investment | currency:'S/ '}}</span>
+    </div>
+    <div>
+      <select (change)="capturePlace($event.target.value)" class="custom-select" id="inputGroupSelect01">
+        <option value="Callao" selected>Planta Callao </option>
+        <option value="Lurin">Planta Lurin</option>
+        <option value="Huachipa">Planta Huachipa</option>
       </select>
+    </div>
   </div>
-</div>
 
-<div class="card" >
+  <div class="card">
     <div class="row no-gutters " *ngFor="let prodOrder of prodOrders">
-      
+
       <div class="col-md-3">
         <img src="{{prodOrder.img}}" class="card-img min-tam" alt="...">
       </div>
@@ -24,52 +24,68 @@
           <h5 class="card-title">{{prodOrder.nombre}}</h5>
           <h5 class="card-title naranja line">{{prodOrder.marca.toUpperCase()}}</h5>
           <p class="card-text line">x{{prodOrder.unidades}} {{prodOrder.presentacion}}</p>
-          <p class="card-text line"><small class="text-muted">P. Sug : {{prodOrder.precSug | currency:'S/ '}}</small></p>
+          <p class="card-text line"><small class="text-muted">P. Sug : {{prodOrder.precSug | currency:'S/ '}}</small>
+          </p>
         </div>
       </div>
       <div class="col-md-3">
         <div class="card-body">
-            <p class="price-new color-verde font-weight line"> Sub Total</p>
-            <h5 class="price-new color-verde font-weight"> {{subTotal(prodOrders.indexOf(prodOrder)) | currency:'S/ '}}</h5>
-            <div nclass="bottom-wrap">
-                <button class="btn btn-secondary font-weight" (click)="addFinalQty(prodOrder)">+</button>
-                <div class="btn font-weight width"><span>{{prodOrder.quantity}}</span>
-                </div>
-                <button class="btn btn-secondary font-weight" (click)="redFinalQty(prodOrder)">-</button>
-              </div>
+          <p class="price-new color-verde font-weight line"> Sub Total</p>
+          <h5 class="price-new color-verde font-weight"> {{subTotal(prodOrders.indexOf(prodOrder)) | currency:'S/ '}}
+          </h5>
+          <div nclass="bottom-wrap">
+            <button class="btn btn-secondary font-weight" (click)="addFinalQty(prodOrder)">+</button>
+            <div class="btn font-weight width"><span>{{prodOrder.quantity}}</span>
+            </div>
+            <button class="btn btn-secondary font-weight" (click)="redFinalQty(prodOrder)">-</button>
+          </div>
         </div>
       </div>
       <hr>
       <div class="col-md-2">
         <div class="card-body">
-            <div class="bottom-wrap">
-                <a (click)= "deleteItem(prodOrders.indexOf(prodOrder))" class="float-right"><span style="font-size: 35px;" class="color-naranja cursor"><i class="fas fa-trash-alt"></i></span></a>
-            </div> <!-- bottom-wrap.// -->
+          <div class="bottom-wrap">
+            <a (click)="deleteItem(prodOrders.indexOf(prodOrder))" class="float-right"><span style="font-size: 35px;"
+                class="color-naranja cursor"><i class="fas fa-trash-alt"></i></span></a>
+          </div> <!-- bottom-wrap.// -->
         </div>
       </div>
       <hr>
     </div>
-   
+  </div>
+
+  <table class="table font-size col-md-4">
+    <thead>
+      <tr>
+        <th scope="col">Compra Total</th>
+        <th scope="col">{{totalOrder() | currency:'S/ '}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Saldo</th>
+        <td>{{showBalance() | currency:'S/ '}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="bottom-wrap margin-bottom">
+    <a (click)="makeOrder(prodOrders, content)" class="btn btn-danger btn-lg  float-right">Realizar Compra</a>
   </div>
 
 
-  <table class="table font-size col-md-4">
-      <thead>
-        <tr>
-          <th scope="col">Compra Total</th>
-          <th scope="col">{{totalOrder() | currency:'S/ '}}</th>
-
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">Saldo</th>
-          <td>{{showBalance() | currency:'S/ '}}</td>
-
-        </tr>
-      </tbody>
-    </table>
-
-<div class="bottom-wrap margin-bottom">
-    <a (click) = "makeOrder(prodOrders)"class="btn btn-danger btn-lg  float-right">Realizar Compra</a>
-</div>
+  <!-- Modal -->
+  <ng-template #content let-modal>
+    <div class="modal-header d-flex flex-column align-items-center">
+      <div class="d-flex flex-column align-items-center">
+        <img class="rounded mx-auto d-block" src="https://i.ibb.co/kXzWBcT/carrito.png">
+        <p class="confirm-title">¡Muy bien!</p>
+        <p class="confirm-product"> En esta compra estarás ganando aproximadamente {{showEarnings()}}</p>
+        <span class="confirm-product">S/.</span>
+        <p class="span-cont confirm-product">Si vendes a precios sugeridos</p>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Send click')">Continuar</button>
+        </div>
+      </div>
+    </div>
+  </ng-template>

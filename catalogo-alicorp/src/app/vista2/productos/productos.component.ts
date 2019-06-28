@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../../service/firebase.service';
 import { LocalService } from '../../service/local.service'
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-productos',
@@ -15,10 +16,32 @@ export class ProductosComponent implements OnInit {
   closeResult: string;
   model = 1;
 
+  customOptions: OwlOptions = {
+    loop: true,
+    margin:10,
+    nav: true,
+    navText: ['back', 'next'],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 4
+      }
+    }
+  }
+
   constructor(public firebaseService: FirebaseService, private localService: LocalService, private modalService: NgbModal
   ) {
     this.funcionIniciarData(this.dataimport)
   }
+
 
   ngOnInit() {
     this.filtrarDataNavBar()
@@ -31,22 +54,20 @@ export class ProductosComponent implements OnInit {
     });
   }
 
-  funcionIniciarData(value) {
-    this.firebaseService.getDataProducts().subscribe(ele => {
-      this.products = [];
-      ele.forEach((productData: any) => {
-        if (!value || productData.categoria === value) {
-          this.products.push({
-            data: {
-              ...productData,
-              quantity: 0
-            }
-          });
-        }
-      })
-    });
+funcionIniciarData(value){
+  this.firebaseService.getDataProducts().subscribe(ele => {
+    this.products=[];
+    ele.forEach((productData:any) => {
+      if(!value || productData.categoria === value){
+      this.products.push({
+        data: {...productData,
+               quantity: 0}
+      });
+    }
+    })
+  });
 
-  }
+}
 
   addProduct(product, index, content) {
     if (product.data.quantity > 0) {
