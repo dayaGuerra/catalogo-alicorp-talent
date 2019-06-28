@@ -1,36 +1,130 @@
-.input-group{
-    margin-top: 20px;
-    width: 30%;
+
+.color-naranja {
+  color: #f59b00;
 }
 
-.tamaño{
- padding: 50px
+.color-verde {
+  color: #6EB22E
 }
 
-.color-naranja{
- color:  #f59b00;
+.font-weight {
+  font-weight: 700
 }
 
-.color-verde{
-    color:#6EB22E
+.bg-gris {
+  background-color: #EDE9E9
 }
 
-.font-weight{
-    font-weight: 700
+.btn-secondary {
+  background-color: #595858
 }
 
-.bg-gris{
-    background-color: #EDE9E9
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  padding: 6px 0px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42857;
 }
 
-.btn-secondary{
-    background-color:#595858
+.confirm-title {
+  color: #E30728;
+  font-size: 1.5rem;
+  line-height: 27px;
+}
+
+.confirm-product {
+  font-size: 1.25rem;
+  line-height: 18px;
+  color: #323131;
+}
+
+.span-cont{
+  padding: 8% 0%;
 }
 
 .width{
-    max-width: 160px;
+  width: 30px;
 }
 
 .hover-btn:hover{
     background-color: #B40312
+}
+
+
+.tamaño-img{
+padding: 18px;
+}
+
+.altura-gris-producto{
+  height: 15rem;
+}
+.tamano-letra-precio{
+  font-size: 20px;
+}
+
+.tamano-letra-producto{
+  font-size: 16px;
+  font-weight: 800;
+}
+ .margin-top{
+  padding: 12px
+ }
+
+.tamano-div-producto{
+  height: 45px;
+}
+
+.tamano-de-boton{
+ height: 50px;
+}
+
+.tamano-letra-btn{
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.grupo-de-btn{
+  text-align: center;
+}
+
+.borde-de-btn{
+  border-radius: 0px;
+}
+
+.btn-lg, .btn{
+  border-radius: 0px
+}
+
+.hola {
+  background-color: #B40312
+}
+
+.borde-de-imagen{
+  border: #595858 solid 1px;
+  border-radius: 15px;
+  width: 50%
+}
+
+.margin-slider{
+  margin-left: 15px;
+}
+
+.text1{
+  color: #76BD1D;
+  font-size: 25px;
+  margin-top: 40px;
+  margin-left: 20px;
+}
+.img-logo {
+  width: 40px;
+  margin-right: 10px;
+}
+
+
+
+.font-whe{
+  font-weight: 700;
 }

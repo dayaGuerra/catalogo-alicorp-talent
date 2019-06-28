@@ -61,6 +61,7 @@ export class LocalService {
     this.productos = [];
   }
 
+
   codeUser(objtDataUser){
     const dataUserSale = {
       ...objtDataUser

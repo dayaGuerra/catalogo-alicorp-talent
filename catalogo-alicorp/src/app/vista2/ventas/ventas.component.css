@@ -7,7 +7,7 @@
 }
 
 h1{
-    font-family: 'Courgette', cursive !important; 
+    font-family: 'Courgette', cursive !important;
     color: #1C5430 ;
 }
 
@@ -38,4 +38,5 @@ th {
 
 .total {
     margin-top: 30px;
+    margin-bottom: 20px;
 }

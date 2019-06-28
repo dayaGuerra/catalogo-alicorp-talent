@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalService } from '../../service/local.service'
 import {Router} from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-carrito',
@@ -16,7 +17,9 @@ export class CarritoComponent implements OnInit {
   name: string;
   earnings: number;
   factory: string = "Callao";
-  constructor(private localService: LocalService, private router: Router) { }
+  closeResult: string;
+  model = 1;
+  constructor(private localService: LocalService, private router: Router, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.localService.userOrderCart.subscribe((obj: object) => {
@@ -64,7 +67,7 @@ export class CarritoComponent implements OnInit {
     this.name = obj.nombre;
   }
 
-  makeOrder(prods) {
+  makeOrder(prods, content) {
     this.localService.requestOrder(
       {
         ...prods,
@@ -75,13 +78,16 @@ export class CarritoComponent implements OnInit {
        place: this.factory
        }
     );
+    this.modalService.open(content, { centered: true, ariaLabelledBy: 'modal-basic-title', backdrop: "static" }).result.then((result) => {
+      this.router.navigateByUrl('/vista2/homepage');
+      this.closeResult = `Closed with: ${result}`;
+    });
     this.prodOrders = [];
-   this.router.navigateByUrl('/vista2/congratulations');
   }
 
   showEarnings() {
     if (this.prodOrders.length >= 1) {
-      this.earnings = this.prodOrders.reduce((total ,prodA) => total + prodA.ganancia*prodA.quantity, 0);
+      this.earnings =  parseFloat((this.prodOrders.reduce((total ,prodA) => total + prodA.ganancia*prodA.quantity, 0)).toFixed(2));
       return this.earnings;
     }
   }

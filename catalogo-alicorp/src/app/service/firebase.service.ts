@@ -18,9 +18,6 @@ export class FirebaseService {
     return this.firestore.collection('operarios').valueChanges();
   }
 
-  getDataDistrict(){
-    return this.firestore.collection('distritos').valueChanges();
-  }
   
   sendDataFirebase(objtSale) {
     console.log(objtSale);
@@ -42,5 +39,9 @@ export class FirebaseService {
   getDataOrde() {
     return this.firestore.collection('orders').valueChanges();
   }
-  
+
+  getDataDistrict(){
+    return this.firestore.collection('distritos').valueChanges();
+  }
 }
+
