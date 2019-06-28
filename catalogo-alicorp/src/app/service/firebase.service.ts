@@ -37,4 +37,9 @@ export class FirebaseService {
   getDataOrde() {
     return this.firestore.collection('orders').valueChanges();
   }
+
+  getDataDistrict(){
+    return this.firestore.collection('distritos').valueChanges();
+  }
 }
+

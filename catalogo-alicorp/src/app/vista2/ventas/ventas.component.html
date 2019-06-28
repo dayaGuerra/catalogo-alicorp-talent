@@ -1,5 +1,5 @@
 <h1 class ="text-center md-6 total" > Mi Venta </h1>
-<form class="col-10 center"> 
+<form class="col-10 center">
   <div class="form-group">
     <label for="exampleFormControlSelect1">A quien vende</label>
     <select class="form-control " id="exampleFormControlSelect1" (change)="capturarClienteFinal($event.target.value)">
@@ -12,14 +12,12 @@
   <div class="form-group">
     <label for="exampleFormControlSelect1">Distrito</label>
     <select class="form-control" id="exampleFormControlSelect1" (change)="capturarDistrito($event.target.value)" >
-      <option>Lima</option>
-      <option>Callao</option>
-      <option>Breña</option>
-      <option>Cercado de Lima</option>
-      <option>Santa Anita</option>
+      <option *ngFor="let title of listDistricts" >
+        {{title.distrito}}
+      </option>
     </select>
   </div>
-  
+
   <div class="form-group row">
     <div class="col-md-3 col-lg-3">
         <label for="exampleFormControlSelect1">Productos</label>
@@ -27,17 +25,17 @@
           <option *ngFor="let dataProducts of newArrayProducts">{{dataProducts}}</option>
         </select>
   </div>
-      
+
     <div class="mount col-md-3 col-lg-3">
       <label for="" class="text-summary">Cant.</label><br>
-      <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="cantidad" name="cantidadVendida" [(ngModel)]="cantidadVendida"> 
+      <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="cantidad" name="cantidadVendida" [(ngModel)]="cantidadVendida">
       <label for="" class="text-summary">Und.</label><br>
-  
+
     </div>
     <a class="" (click)="addSale()"><img class="img-btn" src="https://i.ibb.co/XSd1931/plus.png" alt="icono de agregar"></a>
   </div>
 
-  
+
 </form>
 
 <table class="table table-hover col-10 center">
@@ -56,8 +54,8 @@
         <td >{{indice+1}}</td>
         <td >{{listProduct.productovendido}}</td>
         <td >{{listProduct.cantidad}}</td>
-        <td >{{listProduct.preciosugerido.precSug}}</td>  
-        <td >{{subTotal(listProduct.cantidad, listProduct.preciosugerido.precSug)}}</td>
+        <td >{{listProduct.preciosugerido}}</td>
+        <td >{{listProduct.subtotal}}</td>
         <td><a (click)="deleteSaleProduct(listProduct.productovendido)"><img src="https://i.ibb.co/BqQFgkz/delete-button.png" alt="icono de borrar" class="img-delete"></a></td>
       </tr>
 
@@ -69,7 +67,7 @@
   <form class="form-inline">
     <div class="form-group mount col-md-3 col-lg-3">
       <label for="" class="sr-only"> Venta Total </label>
-      <p class="form-control-static">  Venta Total </p> 
+      <p class="form-control-static">  Venta Total </p>
     </div>
     <div class="form-group mx-sm-3">
       <span class="form-control" id="inputVentaTotal">S/.{{subTotalSale}}</span>
@@ -79,10 +77,10 @@
   <form class="form-inline">
     <div class="form-group mount col-md-3 col-lg-3">
         <label for="" class="sr-only"> Ganancias de la venta </label>
-        <p class="form-control-static">  Ganancias de la Venta </p> 
+        <p class="form-control-static">  Ganancias de la Venta </p>
     </div>
     <div class="form-group mx-sm-3 ">
-        <span class="form-control " id="inputVentaTotal">S/.{{ganancia(subTotalSale)}}</span>
+        <span class="form-control " id="inputVentaTotal">S/.{{earningTotal}}</span>
     </div>
   </form>
 
@@ -90,3 +88,7 @@
     <button type="button" class="width  btn  btn-lg btn-danger justify-content-center" (click)="sendDataSale()" routerlink="/congratulations">Guardar Venta Total</button>
   </div>
 </div>
+Contraer
+
+
+

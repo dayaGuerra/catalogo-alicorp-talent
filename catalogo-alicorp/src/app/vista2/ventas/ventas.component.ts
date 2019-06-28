@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './ventas.component.html',
   styleUrls: ['./ventas.component.css']
 })
+
 export class VentasComponent implements OnInit {
 
   public ventaFinalSeleccionado: string;
@@ -26,45 +27,43 @@ export class VentasComponent implements OnInit {
   public objectListProducts: any;
   public subTotalSale: number;
   public percentSale: number;
-  
+  public listDistricts: any;
+  date: any;
+  public earningTotal: number;
 
-  constructor( private service: LocalService, private router: Router, private serviceFirestore: FirebaseService) { 
+
+  constructor( private service: LocalService, private router: Router, private serviceFirestore: FirebaseService) {
     this.service.userCodePerfil.subscribe((obj: object) => {
     this.userData = obj;
     })
 
+    /*Trae la data de compra de productos del usuario logueado */
     this.serviceFirestore.getDataOrde().subscribe(objectBuy => {
       this.dataBuyUser = objectBuy;
-      console.log(this.dataBuyUser);
       this.dataSelect();
     })
-   
+
+    /* Trae la data de distritos de la base de datos de firestore */
+    this.serviceFirestore.getDataDistrict().subscribe(districts => {
+      this.listDistricts = districts;
+    })
   }
 
   ngOnInit() {
-    
+    this.date = new Date();
   }
 
   dataSelect(){
     if (this.dataBuyUser) {
-      const dataNewObject = this.dataBuyUser[0];
-      console.log('uno',dataNewObject);
-
-
+      const dataNewObject = this.dataBuyUser;
       const newObj = Object.values(dataNewObject);
-      console.log('dos',newObj);
-
       const valueObj = newObj.filter(value => typeof value === "object");
       this.objectListProducts = valueObj
-
-      const eleUno = valueObj.map((p: any) => p.nombre );
-       this.newArrayProducts = eleUno;
-      
-       console.log('hola', eleUno)
-
+      const eleUno = valueObj.map((p: any) => p[0].nombre );
+      this.newArrayProducts = eleUno;
     }
   }
-  
+
   capturarClienteFinal(value) {
     // Pasamos el valor seleccionado a la variable verSeleccion
     this.typeconsumer = value;
@@ -77,23 +76,24 @@ export class VentasComponent implements OnInit {
 
   capturarProducto(value) {
     this.productoVendido = value;
-    console.log(this.productoVendido);
   }
 
   addSale() {
-   this.precioSugerido = this.objectListProducts.find(p => p.nombre === this.productoVendido)
-   console.log(this.precioSugerido.precioSugerido);
+   this.precioSugerido = this.objectListProducts.find(p => p[0].nombre === this.productoVendido)
+   this.subTotal(this.cantidadVendida, this.precioSugerido[0].precSug)
+   this.ganancia(this.cantidadVendida, this.precioSugerido[0].ganancia, this.precioSugerido[0].unidades)
     const dataObjt = {
       ventaFinal: this.typeconsumer,
       distrito: this.distritoSeleccionado,
       productovendido: this.productoVendido,
       cantidad: this.cantidadVendida,
-      preciosugerido: this.precioSugerido,
+      preciosugerido: this.precioSugerido[0].precSug,
       indice: this.productoVendido.substring(0,3),
       subtotal: this.subTotalSale,
-      ganancia: this.percentSale
+      ganancia: this.percentSale,
+      fecha: this.date
     }
-    console.log(dataObjt);
+   this.gananciaTotal(this.percentSale)
 
     if(dataObjt.productovendido !== '' && dataObjt.cantidad) {
       this.dataObjectProducts.push(dataObjt);
@@ -112,13 +112,17 @@ export class VentasComponent implements OnInit {
     return this.subTotalSale;
   }
 
-  ganancia(venta: number){
-    return this.percentSale = venta*0.3;
+  ganancia(venta: number, ganancia: number, unidades: number){
+    return this.percentSale = venta*(ganancia/unidades);
+  }
+
+  gananciaTotal(earning: number){
+    this.earningTotal = this.percentSale + earning;
+    return this.earningTotal.toFixed(2);
   }
 
   deleteSaleProduct(indice: any) {
-    const newListproduct = this.dataObjectProducts.filter(elemt => elemt.indice !== indice.substring(0,3)); 
-    // console.log(newListproduct);
+    const newListproduct = this.dataObjectProducts.filter(elemt => elemt.indice !== indice.substring(0,3));
     this.dataObjectProducts = newListproduct;
     return this.dataObjectProducts;
   }
@@ -126,9 +130,8 @@ export class VentasComponent implements OnInit {
   sendDataSale(){
     const newObjectSaleProduct = this.dataObjectProducts;
     const nameSaleuser = this.userData;
-    // console.log(nameSaleuser);
     this.service.sendDataToService(newObjectSaleProduct, nameSaleuser);
     return this.router.navigateByUrl('/vista2/congratulations');
   }
-  
+
 }
