@@ -17,6 +17,11 @@ export class FirebaseService {
   getDataPersonal(){
     return this.firestore.collection('operarios').valueChanges();
   }
+
+  getDataDistrict(){
+    return this.firestore.collection('distritos').valueChanges();
+  }
+  
   sendDataFirebase(objtSale) {
     console.log(objtSale);
     this.firestore.collection('ventas').add(objtSale);
@@ -37,4 +42,5 @@ export class FirebaseService {
   getDataOrde() {
     return this.firestore.collection('orders').valueChanges();
   }
+  
 }

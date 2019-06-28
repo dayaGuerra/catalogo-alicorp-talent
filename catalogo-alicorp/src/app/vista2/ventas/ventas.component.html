@@ -12,11 +12,9 @@
   <div class="form-group">
     <label for="exampleFormControlSelect1">Distrito</label>
     <select class="form-control" id="exampleFormControlSelect1" (change)="capturarDistrito($event.target.value)" >
-      <option>Lima</option>
-      <option>Callao</option>
-      <option>Breña</option>
-      <option>Cercado de Lima</option>
-      <option>Santa Anita</option>
+      <option *ngFor="let title of listDistricts" >
+        {{title.distrito}}
+      </option>
     </select>
   </div>
   
@@ -56,8 +54,8 @@
         <td >{{indice+1}}</td>
         <td >{{listProduct.productovendido}}</td>
         <td >{{listProduct.cantidad}}</td>
-        <td >{{listProduct.preciosugerido.precSug}}</td>  
-        <td >{{subTotal(listProduct.cantidad, listProduct.preciosugerido.precSug)}}</td>
+        <td >{{listProduct.preciosugerido}}</td>  
+        <td >{{listProduct.subtotal}}</td>
         <td><a (click)="deleteSaleProduct(listProduct.productovendido)"><img src="https://i.ibb.co/BqQFgkz/delete-button.png" alt="icono de borrar" class="img-delete"></a></td>
       </tr>
 
@@ -82,7 +80,7 @@
         <p class="form-control-static">  Ganancias de la Venta </p> 
     </div>
     <div class="form-group mx-sm-3 ">
-        <span class="form-control " id="inputVentaTotal">S/.{{ganancia(subTotalSale)}}</span>
+        <span class="form-control " id="inputVentaTotal">S/.{{earningTotal}}</span>
     </div>
   </form>
 
