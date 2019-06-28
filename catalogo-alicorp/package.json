@@ -23,12 +23,9 @@
     "@ng-bootstrap/ng-bootstrap": "^4.2.1",
     "animate.css": "^3.7.2",
     "core-js": "^2.5.4",
-<<<<<<< HEAD
     "firebase": "^6.2.3",
-=======
-    "firebase": "^6.0.2",
+    "firebase-functions": "^3.0.2",
     "ngx-owl-carousel-o": "^1.1.5",
->>>>>>> 5edf7ac05ebe57a18a0fb6f08f41339b909df52f
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
