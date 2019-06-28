@@ -54,11 +54,11 @@ import { CongratulationsComponent } from './vista2/congratulations/congratulatio
     AngularFireModule.initializeApp(environment.firebaseConfig),
     FormsModule,
     CarouselModule,
-
+    BrowserAnimationsModule
   ],
   providers: [
     AngularFirestore,
-    BrowserAnimationsModule
+
   ],
 
   bootstrap: [AppComponent]
